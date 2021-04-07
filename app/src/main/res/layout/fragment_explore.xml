@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/explore_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ExploreFragment"
+        android:paddingBottom="55dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_layout"
+            android:elevation="10dp"
+            android:orientation="vertical"
+            android:paddingBottom="7dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/search_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/search_bar"
+                    android:fontFamily="@font/montserrat"
+                    android:imeOptions="actionDone"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/max_Black"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/search_et"
+                    app:layout_constraintEnd_toEndOf="@+id/search_et"
+                    app:layout_constraintHorizontal_bias="0.935"
+                    app:layout_constraintStart_toStartOf="@+id/search_et"
+                    app:layout_constraintTop_toTopOf="@+id/search_et"
+                    app:srcCompat="@drawable/search" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_filter"
+                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_et" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    android:layout_marginEnd="36dp"
+
+                    android:fontFamily="@font/montserrat"
+                    android:text="Filter"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_et" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:layout_marginTop="7dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/RadioGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:scrollbars="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radiobutton1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:background="@drawable/corner_bg"
+                            android:backgroundTint="@android:color/transparent"
+                            android:button="@null"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center"
+                            android:paddingHorizontal="15dp"
+                            android:paddingVertical="7dp"
+                            android:text="Rekomendasi"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radiobutton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:background="@drawable/corner_bg"
+                            android:backgroundTint="@android:color/transparent"
+                            android:button="@null"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center"
+                            android:paddingHorizontal="15dp"
+                            android:paddingVertical="7dp"
+                            android:text="Rekomendasi"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radiobutton3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:background="@drawable/corner_bg"
+                            android:backgroundTint="@android:color/transparent"
+                            android:button="@null"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center"
+                            android:paddingHorizontal="15dp"
+                            android:paddingVertical="7dp"
+                            android:text="Rekomendasi"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radiobutton4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:background="@drawable/corner_bg"
+                            android:backgroundTint="@android:color/transparent"
+                            android:button="@null"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center"
+                            android:paddingHorizontal="15dp"
+                            android:paddingVertical="7dp"
+                            android:text="Rekomendasi"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radiobutton5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="12dp"
+                            android:background="@drawable/corner_bg"
+                            android:backgroundTint="@android:color/transparent"
+                            android:button="@null"
+                            android:fontFamily="@font/montserrat"
+                            android:gravity="center"
+                            android:paddingHorizontal="15dp"
+                            android:paddingVertical="7dp"
+                            android:text="Rekomendasi"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+                    </RadioGroup>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/explore_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

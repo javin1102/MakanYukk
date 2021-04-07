@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MakanYukk</string>
+    <string name="daftar_sekarang">Daftar Sekarang</string>
+    <string name="daftar">Daftar</string>
+    <string name="sekarang">Sekarang</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="konfirmasi">Konfirmasi Password</string>
+    <string name="lanjut">Lanjut</string>
+    <string name="masuk">Masuk</string>
+    <string name="belum_punya_akun">Belum Punya Akun?</string>
+    <string name="logo">logo</string>
+    <string name="sudah_punya_akun">Sudah Punya Akun?</string>
+    <string name="Background">background</string>
+    <string name="profile">Profile</string>
+    <string name="masukkan_username">Masukkan Username</string>
+    <string name="masukkan_no_hp">Masukkan No HP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

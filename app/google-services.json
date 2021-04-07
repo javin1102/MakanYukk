@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "794361047460",
+    "project_id": "makanyukk-75ace",
+    "storage_bucket": "makanyukk-75ace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794361047460:android:9a53fcca7a139286283931",
+        "android_client_info": {
+          "package_name": "com.example.makanyukk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794361047460-4dug2rk27c7qedtt8gsg2egu3ea2pbg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqdkmCzerzdPBmmbo8kVYLzy1lB86pvr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794361047460-4dug2rk27c7qedtt8gsg2egu3ea2pbg0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
