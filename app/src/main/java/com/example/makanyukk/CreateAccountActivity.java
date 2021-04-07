@@ -33,7 +33,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private FirebaseUser user;
     private static final String TAG = "ASD";
     private ActivityCreateAccountBinding binding;
-
+    //asdasd
 
 
     @Override
