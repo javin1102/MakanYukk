@@ -38,15 +38,17 @@ public class MainPageActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id =item.getItemId();
             if(id == R.id.home_nav_button){
-                Log.d(TAG, "onCreate: "+id);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,MainFragment.newInstance()).commit();
                 return true;
 
             }
             else if(id == R.id.explore_nav_button){
-                Log.d(TAG, "onCreate: "+id);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ExploreFragment.newInstance()).addToBackStack(null).commit();
                 return true;
+            }
+
+            else if(id == R.id.profile_nav_button){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,ProfileFragment.newInstance()).commit();
             }
 
 
