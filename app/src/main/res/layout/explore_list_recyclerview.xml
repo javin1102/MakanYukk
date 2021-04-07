@@ -53,7 +53,7 @@
         android:id="@+id/imageView6"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        app:srcCompat="@drawable/ic_baseline_location_on_24"
+        app:srcCompat="@drawable/icon_location_bottomnav"
         app:layout_constraintStart_toEndOf="@+id/res_logo"
         app:layout_constraintTop_toBottomOf="@id/res_short_desc"
         android:layout_marginHorizontal="8dp"

@@ -3,13 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home_nav_button"
-        android:icon="@drawable/home"
+        android:icon="@drawable/icon_home_bottomnav"
         android:title="Home"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/explore_nav_button"
-        android:icon="@drawable/list"
+        android:icon="@drawable/icon_explore_bottomnav"
         android:title="Explore"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/profile_nav_button"
+        android:icon="@drawable/icon_profile_bottomnav"
+        android:title="Profile"
+        app:showAsAction="ifRoom" />
+
 </menu>
