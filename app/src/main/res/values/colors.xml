@@ -14,8 +14,9 @@
     <color name="maroon">#FF9882</color>
     <color name="gray">#A0A0A0</color>
     <color name="light_gray">#60CDCDCD</color>
-    <color name="red">#F67047</color>
+    <color name="red">#FF6060</color>
     <color name="light_gold">#FFF0C3</color>
     <color name="medium_gold">#FFD465</color>
     <color name="colorPrimaryRipple">#423F51B5</color>
+    <color name="layout_bg">#F6F6F6</color>
 </resources>

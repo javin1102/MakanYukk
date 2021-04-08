@@ -1,560 +1,567 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:backgroundTint="@color/darken_golden"
-    android:orientation="vertical"
-    tools:context=".ProfileFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <ScrollView
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/darken_golden"
+        android:orientation="vertical"
+        tools:context=".ProfileFragment">
 
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.Toolbar
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F8C84F">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Akun Saya"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="260dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/icon_notification" />
-
-            </androidx.appcompat.widget.Toolbar>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
+                <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/corner_bg"
-                    android:backgroundTint="@color/white"
-                    android:clipToPadding="false"
-                    android:elevation="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="20dp">
+                    android:background="#F8C84F">
 
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:background="@drawable/circle"
-                        android:backgroundTint="#FFDD87" />
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:orientation="vertical">
+                        android:fontFamily="@font/montserrat"
+                        android:text="Akun Saya"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/profile_user_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Javin Rionardi"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="260dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/icon_notification" />
 
-                        <TextView
-                            android:id="@+id/profile_user_phoneNumber"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="08********64"
-                            android:textColor="#6A6A6A"
-                            android:textSize="10sp" />
+                </androidx.appcompat.widget.Toolbar>
 
-                        <TextView
-                            android:id="@+id/profile_user_email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="javinrio112@gmail.com"
-                            android:textColor="#6A6A6A"
-                            android:textSize="10sp" />
-
-                    </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="15dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:gravity="right|center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/profile_ubah_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="Ubah"
-                            android:textColor="@color/golden_bg"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:layout_marginLeft="2dp"
-                            app:srcCompat="@drawable/icon_edit" />
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="25dp"
-                app:cardCornerRadius="7dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingVertical="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        app:srcCompat="@drawable/icon_restoran"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:id="@+id/profile_restoran_name"
-                        android:text="Daftar Restoran Anda"
-                        android:fontFamily="@font/montserrat"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="12sp"/>
-                    <ImageButton
-                        android:layout_width="30dp"
-                        android:layout_height="15dp"
-                        app:srcCompat="@drawable/icon_arrow_forward"
-                        android:background="@android:color/transparent"
-                        android:layout_marginLeft="160dp"/>
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="25dp"
-                app:cardCornerRadius="7dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="5dp"
-                        android:paddingVertical="15dp"
-                        android:gravity="center_horizontal"
-                        android:layout_marginHorizontal="15dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            android:text="Pembayaran"/>
+                        android:background="@drawable/corner_bg"
+                        android:backgroundTint="@color/white"
+                        android:clipToPadding="false"
+                        android:elevation="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="20dp">
 
                         <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
-                            app:srcCompat="@drawable/circle"
                             android:background="@drawable/circle"
-                            android:backgroundTint="#62AFD0"
-                            android:layout_marginVertical="10dp"/>
+                            android:backgroundTint="#FFDD87" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp"
-                                android:textSize="12sp"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/montserrat"
-                                android:layout_marginBottom="5dp" />
+                            android:layout_marginHorizontal="10dp"
+                            android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/profile_user_money"
+                                android:id="@+id/profile_user_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="3dp"
                                 android:fontFamily="@font/montserrat"
-                                android:singleLine="true"
-                                android:text="5 Juta"
-                                android:textAlignment="center"
+                                android:text="Javin Rionardi"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/profile_user_phoneNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="08********64"
+                                android:textColor="#6A6A6A"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/profile_user_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="javinrio112@gmail.com"
+                                android:textColor="#6A6A6A"
+                                android:textSize="10sp" />
+
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:layout_marginTop="5dp">
+                            android:layout_marginBottom="30dp"
+                            android:gravity="right|center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/profile_ubah_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="Ubah"
+                                android:textColor="@color/golden_bg"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
 
                             <ImageView
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="#95DFFF"/>
-
-                            <TextView
-                                android:id="@+id/profile_user_poin"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="2dp"
-                                android:fontFamily="@font/montserrat"
-                                android:text="53.300"
-                                android:textColor="#5F5F5F"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
+                                app:srcCompat="@drawable/icon_edit" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:textSize="10sp"
-                                android:textColor="#5F5F5F"
-                                android:text="Poin"
-                                android:fontFamily="@font/montserrat"
-                                android:layout_marginLeft="2dp"/>
 
                         </LinearLayout>
+                    </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="25dp"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="5dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/profile_daftarRes">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:srcCompat="@drawable/icon_restoran" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:id="@+id/profile_restoran_name"
+                            android:text="Daftar Restoran Anda"
+                            android:fontFamily="@font/montserrat"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="12sp" />
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="15dp"
+                            app:srcCompat="@drawable/icon_arrow_forward"
+                            android:background="@android:color/transparent"
+                            android:layout_marginLeft="140dp" />
 
                     </LinearLayout>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        app:cardElevation="5dp"
-                        app:cardCornerRadius="10dp">
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="25dp"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:divider="?android:dividerHorizontal"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:showDividers="middle"
-                            android:paddingVertical="20dp">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="5dp"
+                            android:paddingVertical="15dp"
+                            android:gravity="center_horizontal"
+                            android:layout_marginHorizontal="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:text="Pembayaran" />
+
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                app:srcCompat="@drawable/circle"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="#62AFD0"
+                                android:layout_marginVertical="10dp" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="20dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:background="@drawable/corner_bg"
-                                    android:backgroundTint="#FBCB50" />
+                                android:orientation="horizontal"
+                                android:gravity="center">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
-                                    android:fontFamily="@font/montserrat"
-                                    android:text="Bayar"
+                                    android:text="Rp"
+                                    android:textSize="12sp"
                                     android:textColor="@color/black"
-                                    android:textSize="12sp" />
+                                    android:fontFamily="@font/montserrat"
+                                    android:layout_marginBottom="5dp" />
+
+                                <TextView
+                                    android:id="@+id/profile_user_money"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:fontFamily="@font/montserrat"
+                                    android:singleLine="true"
+                                    android:text="5.000.000"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginHorizontal="20dp"
+                                android:orientation="horizontal"
                                 android:gravity="center"
-                                android:orientation="vertical">
+                                android:layout_marginTop="5dp">
 
                                 <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:background="@drawable/corner_bg"
-                                    android:backgroundTint="#FBCB50" />
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="#95DFFF" />
+
+                                <TextView
+                                    android:id="@+id/profile_user_poin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2dp"
+                                    android:fontFamily="@font/montserrat"
+                                    android:text="53.300"
+                                    android:textColor="#5F5F5F"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="10sp"
+                                    android:textColor="#5F5F5F"
+                                    android:text="Poin"
                                     android:fontFamily="@font/montserrat"
-                                    android:singleLine="true"
-                                    android:text="Isi Ulang"
-                                    android:textColor="@color/black"
-                                    android:textSize="12sp" />
+                                    android:layout_marginLeft="2dp" />
+
                             </LinearLayout>
 
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:cardElevation="5dp"
+                            app:cardCornerRadius="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:divider="?android:dividerHorizontal"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:showDividers="middle"
+                                android:paddingVertical="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="20dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@drawable/corner_bg"
+                                        android:backgroundTint="#FBCB50" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:text="Bayar"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="20dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@drawable/corner_bg"
+                                        android:backgroundTint="#FBCB50" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:fontFamily="@font/montserrat"
+                                        android:singleLine="true"
+                                        android:text="Isi Ulang"
+                                        android:textColor="@color/black"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
 
 
+                            </LinearLayout>
 
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="25dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
+                        </androidx.cardview.widget.CardView>
 
 
-                <LinearLayout
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="15dp">
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="25dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:fontFamily="@font/montserrat"
-                        android:text="Tentang"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:divider="?android:dividerHorizontal"
                         android:orientation="vertical"
-                        android:showDividers="middle">
+                        android:paddingTop="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Tentang"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="10dp">
+                            android:divider="?android:dividerHorizontal"
+                            android:orientation="vertical"
+                            android:showDividers="middle">
 
-                            <ImageView
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="35dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="@color/golden_bg" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:text="Syarat dan Ketentuan"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:layout_marginVertical="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="10dp">
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="130dp"
-                                android:src="@drawable/icon_arrow_forward" />
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="35dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="@color/golden_bg" />
 
-                        </LinearLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Syarat dan Ketentuan"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="10dp">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="130dp"
+                                    android:src="@drawable/icon_arrow_forward" />
 
-                            <ImageView
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="35dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="@color/golden_bg" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:text="Syarat dan Ketentuan"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:layout_marginVertical="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="10dp">
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="130dp"
-                                android:src="@drawable/icon_arrow_forward" />
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="35dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="@color/golden_bg" />
 
-                        </LinearLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Syarat dan Ketentuan"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="10dp">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="130dp"
+                                    android:src="@drawable/icon_arrow_forward" />
 
-                            <ImageView
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="35dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="@color/golden_bg" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:text="Syarat dan Ketentuan"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:layout_marginVertical="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="10dp">
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="130dp"
-                                android:src="@drawable/icon_arrow_forward" />
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="35dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="@color/golden_bg" />
 
-                        </LinearLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Syarat dan Ketentuan"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="5dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="10dp">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="130dp"
+                                    android:src="@drawable/icon_arrow_forward" />
 
-                            <ImageView
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="35dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="@color/golden_bg" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:text="Syarat dan Ketentuan"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:layout_marginVertical="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="10dp">
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="130dp"
-                                android:src="@drawable/icon_arrow_forward" />
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="35dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="@color/golden_bg" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Syarat dan Ketentuan"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="130dp"
+                                    android:src="@drawable/icon_arrow_forward" />
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
 
                     </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
 
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginVertical="80dp"
-                app:cardBackgroundColor="#FF5C5C"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="2dp"
-                android:layout_marginHorizontal="30dp">
-
-                <TextView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Keluar"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:gravity="center"/>
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="80dp"
+                    app:cardBackgroundColor="#FF5C5C"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginHorizontal="30dp">
+
+                    <TextView
+                        android:id="@+id/profile_keluar_TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="center"
+                        android:text="Keluar"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-    </ScrollView>
-
-
+            </LinearLayout>
+        </ScrollView>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

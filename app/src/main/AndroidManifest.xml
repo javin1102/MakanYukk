@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:name=".util.UsersAPI"
         android:allowBackup="true"
@@ -12,7 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileSetupActivity"></activity>
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+
+        <activity android:name=".DaftarRestoranActivity"
+            android:theme="@style/AppTheme"/>
+
+
+        <activity android:name=".ProfileSetupActivity" />
         <activity android:name=".MainPageActivity" />
         <activity android:name=".LoginActivity" />
         <activity
