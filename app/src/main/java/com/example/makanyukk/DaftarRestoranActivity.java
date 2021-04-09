@@ -8,11 +8,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+
+import com.example.makanyukk.databinding.ActivityDaftarRestoranBinding;
 
 public class DaftarRestoranActivity extends AppCompatActivity  {
 
     private TextView mTextView;
     private ActionBar actionBar;
+    private ActivityDaftarRestoranBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +24,7 @@ public class DaftarRestoranActivity extends AppCompatActivity  {
 
         Toolbar toolbar = findViewById(R.id.daftar_res_toolbar);
         setSupportActionBar(toolbar);
+        binding = DataBindingUtil.setContentView(DaftarRestoranActivity.this,R.layout.activity_daftar_restoran);
 
 
         actionBar = getSupportActionBar();
@@ -27,6 +32,7 @@ public class DaftarRestoranActivity extends AppCompatActivity  {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
+        
 
     }
 
