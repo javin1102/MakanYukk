@@ -16,7 +16,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:elevation="10dp"
             android:background="@color/white"
             android:id="@+id/daftar_res_toolbar"
@@ -69,7 +69,8 @@
                             android:text="Tambah"
                             android:textColor="@color/golden_bg"
                             android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:id="@+id/daftar_res_tambah_TV"/>
 
                         <TextView
                             android:id="@+id/daftar_res_foto_deskripsi"
@@ -81,7 +82,7 @@
                         <androidx.cardview.widget.CardView
                             android:id="@+id/daftar_res_foto1"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="170dp"
                             android:layout_below="@id/daftar_res_foto_deskripsi"
                             android:layout_marginVertical="10dp"
                             android:visibility="gone"
@@ -91,21 +92,25 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@color/light_gray" />
+                                android:src="@color/light_gray"
+                                android:id="@+id/daftar_res_foto1_IV"
+                                android:scaleType="centerCrop"/>
 
                             <ImageButton
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="350dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginStart="340dp"
+                                android:layout_marginTop="5dp"
                                 android:background="@drawable/circle"
                                 android:backgroundTint="#FF6060"
-                                android:src="@drawable/icon_close" />
+                                android:src="@drawable/icon_close"
+                                android:id="@+id/daftar_res_foto1_close"/>
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/daftar_res_foto2"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="170dp"
                             android:layout_below="@id/daftar_res_foto1"
                             android:layout_marginVertical="10dp"
                             android:visibility="gone"
@@ -115,12 +120,16 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@color/light_gray" />
+                                android:src="@color/light_gray"
+                                android:id="@+id/daftar_res_foto2_IV"
+                                android:scaleType="centerCrop"/>
 
                             <ImageButton
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="350dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:id="@+id/daftar_res_foto2_close"
+                                android:layout_marginStart="340dp"
+                                android:layout_marginTop="5dp"
                                 android:background="@drawable/circle"
                                 android:backgroundTint="#FF6060"
                                 android:src="@drawable/icon_close" />
@@ -129,7 +138,7 @@
                         <androidx.cardview.widget.CardView
                             android:id="@+id/daftar_res_foto3"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="170dp"
                             android:layout_below="@id/daftar_res_foto2"
                             android:layout_marginVertical="10dp"
                             android:visibility="gone"
@@ -139,12 +148,16 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@color/light_gray" />
+                                android:src="@color/light_gray"
+                                android:id="@+id/daftar_res_foto3_IV"
+                                android:scaleType="centerCrop"/>
 
                             <ImageButton
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="350dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:id="@+id/daftar_res_foto3_close"
+                                android:layout_marginStart="340dp"
+                                android:layout_marginTop="5dp"
                                 android:background="@drawable/circle"
                                 android:backgroundTint="#FF6060"
                                 android:src="@drawable/icon_close" />
@@ -173,7 +186,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_resAnda_TV"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
 
@@ -224,7 +237,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_namaRes_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -256,7 +269,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_email_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -278,6 +291,7 @@
                                 android:textSize="10sp" />
 
                             <TextView
+                                android:id="@+id/daftar_res_kategori_tambah"
                                 style="@style/general_textstyle"
                                 android:layout_marginStart="260dp"
                                 android:text="Tambah"
@@ -287,119 +301,129 @@
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/daftar_res_kategori_1"
-                                android:layout_width="80dp"
-                                android:layout_height="40dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_below="@id/daftar_res_kategori_deskripsi"
-                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
                                 android:visibility="gone">
 
                                 <TextView
+                                    android:id="@+id/daftar_res_category1_TV"
+
                                     style="@style/general_textstyle"
-                                    android:layout_gravity="center"
+                                    android:layout_marginHorizontal="10dp"
                                     android:background="@drawable/corner_bg"
                                     android:backgroundTint="#FFD15C"
                                     android:paddingHorizontal="10dp"
                                     android:paddingVertical="8dp"
-                                    android:text="Chinese"
+                                    android:text="asdasdsad"
                                     android:textColor="@color/white"
-                                    android:textSize="12sp"
+                                    android:textSize="14sp"
                                     android:textStyle="bold"
-
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintLeft_toLeftOf="parent"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
+
                                 <ImageButton
-                                    android:layout_width="17dp"
-                                    android:layout_height="17dp"
-                                    android:layout_marginEnd="2dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/daftar_res_kategori1_close"
+                                    android:layout_width="23dp"
+                                    android:layout_height="23dp"
                                     android:background="@drawable/circle"
                                     android:backgroundTint="@color/red"
                                     android:src="@drawable/icon_close_2"
                                     app:layout_constraintRight_toRightOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
-                            </androidx.constraintlayout.widget.ConstraintLayout>
 
+                            </androidx.constraintlayout.widget.ConstraintLayout>
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:layout_below="@id/daftar_res_kategori_deskripsi"
+                                android:layout_toEndOf="@id/daftar_res_kategori_1"
                                 android:id="@+id/daftar_res_kategori_2"
-                                android:layout_width="80dp"
-                                android:layout_height="40dp"
-                                android:layout_below="@id/daftar_res_kategori_deskripsi"
-                                android:layout_marginTop="10dp"
-                                android:layout_toRightOf="@id/daftar_res_kategori_1"
-                                android:visibility="gone">
-
+                                android:visibility="gone"
+                                android:gravity="center_vertical">
                                 <TextView
                                     style="@style/general_textstyle"
-                                    android:layout_gravity="center"
+
                                     android:background="@drawable/corner_bg"
                                     android:backgroundTint="#FFD15C"
                                     android:paddingHorizontal="10dp"
                                     android:paddingVertical="8dp"
-                                    android:text="Chinese"
+                                    android:text="asdasdsad"
                                     android:textColor="@color/white"
-                                    android:textSize="12sp"
+                                    android:textSize="14sp"
                                     android:textStyle="bold"
-
+                                    android:layout_marginHorizontal="10dp"
+                                    android:id="@+id/daftar_res_category2_TV"
+                                    app:layout_constraintTop_toTopOf="parent"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintLeft_toLeftOf="parent"
-                                    app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintRight_toRightOf="parent"/>
+
 
                                 <ImageButton
-                                    android:layout_width="17dp"
-                                    android:layout_height="17dp"
-                                    android:layout_marginEnd="2dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/daftar_res_kategori2_close"
+                                    android:layout_width="23dp"
+                                    android:layout_height="23dp"
                                     android:background="@drawable/circle"
                                     android:backgroundTint="@color/red"
                                     android:src="@drawable/icon_close_2"
                                     app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+
+                                    />
+
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
-
                             <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/daftar_res_kategori_3"
-                                android:layout_width="80dp"
-                                android:layout_height="40dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_below="@id/daftar_res_kategori_deskripsi"
-                                android:layout_marginTop="10dp"
-                                android:layout_toRightOf="@id/daftar_res_kategori_2"
-                                android:visibility="gone">
-
+                                android:layout_toEndOf="@id/daftar_res_kategori_2"
+                                android:id="@+id/daftar_res_kategori_3"
+                                android:visibility="gone"
+                                android:gravity="center_vertical">
                                 <TextView
                                     style="@style/general_textstyle"
-                                    android:layout_gravity="center"
+
                                     android:background="@drawable/corner_bg"
                                     android:backgroundTint="#FFD15C"
                                     android:paddingHorizontal="10dp"
                                     android:paddingVertical="8dp"
-                                    android:text="Chinese"
+                                    android:text="asdasdsad"
                                     android:textColor="@color/white"
-                                    android:textSize="12sp"
+                                    android:textSize="14sp"
                                     android:textStyle="bold"
-
+                                    android:layout_marginHorizontal="10dp"
+                                    android:id="@+id/daftar_res_category3_TV"
+                                    app:layout_constraintTop_toTopOf="parent"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintLeft_toLeftOf="parent"
-                                    app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintRight_toRightOf="parent"/>
+
 
                                 <ImageButton
-                                    android:layout_width="17dp"
-                                    android:layout_height="17dp"
-                                    android:layout_marginEnd="2dp"
-                                    android:layout_marginBottom="10dp"
+                                    android:id="@+id/daftar_res_kategori3_close"
+                                    android:layout_width="23dp"
+                                    android:layout_height="23dp"
                                     android:background="@drawable/circle"
                                     android:backgroundTint="@color/red"
                                     android:src="@drawable/icon_close_2"
                                     app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+
+                                    />
+
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 
                         </RelativeLayout>
@@ -409,7 +433,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_kategori_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -470,7 +494,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_lokasi_TV"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -504,7 +528,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_alamat_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -538,7 +562,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_kota_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -573,7 +597,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_kodepos_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView
@@ -617,7 +641,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/daftar_res_latitude_section"
-                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginHorizontal="10dp"
                             android:layout_marginTop="10dp">
 
                             <TextView

@@ -163,7 +163,7 @@
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:id="@+id/profile_restoran_name"
-                            android:text="Daftar Restoran Anda"
+                            android:text="Restoran Anda"
                             android:fontFamily="@font/montserrat"
                             android:textColor="@color/black"
                             android:layout_marginLeft="10dp"
@@ -174,7 +174,7 @@
                             android:layout_height="15dp"
                             app:srcCompat="@drawable/icon_arrow_forward"
                             android:background="@android:color/transparent"
-                            android:layout_marginLeft="140dp" />
+                            android:layout_marginLeft="180dp" />
 
                     </LinearLayout>
 
