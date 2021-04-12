@@ -10,6 +10,7 @@ import android.util.Log;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.EditText;
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class DaftarRestoranActivity extends AppCompatActivity implements View.OnClickListener {
+public class DaftarRestoranActivity extends AppCompatActivity implements View.OnClickListener,View.OnTouchListener {
 
     private ActivityDaftarRestoranBinding binding;
     private static final int RES_IMAGES_CODE = 1;
@@ -131,6 +132,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 String latitude = binding.daftarResLatitudeET.getText().toString().trim();
                 String longitude = binding.daftarResLongitudeET.getText().toString().trim();
                 insertResData(name,description,email,address,city,zipCode,latitude,longitude);
+                Util.hideKeyboard(this);
             }
         });
 
@@ -337,18 +339,20 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
     }
 
     private void insertResData(String resName, String resDescription,String email, String address, String city, String zipCode, String latitude, String longitude){
+
         //Loading Screen Animation
         binding.daftarResDaftarButton.setEnabled(false);
         inAnimation = new AlphaAnimation(0f, 1f);
         inAnimation.setDuration(200);
         binding.progressBarHolder.setVisibility(View.VISIBLE);
         binding.linearLayout.setForeground(new ColorDrawable(ContextCompat.getColor(this, R.color.light_gray)));
+        binding.linearLayout.setClickable(false);
+        binding.daftarResSV.setOnTouchListener((v, event) -> true);
 
 
         String id = restaurantReference.document().getId();
         List<String> resUri = new ArrayList<>();
         Restaurant restaurant = new Restaurant(categoryList);
-
         restaurant.setName(resName);
         restaurant.setDescription(resDescription);
         restaurant.setId(id);
@@ -403,6 +407,8 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                             binding.daftarResDaftarButton.setEnabled(true);
                             restaurantReference.add(restaurant);
                             binding.linearLayout.setForeground(null);
+                            binding.linearLayout.setClickable(true);
+                            binding.daftarResSV.setOnTouchListener((v, event) -> false);
                         }
 
                     }
@@ -435,5 +441,11 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
     }
     private String capitalize(String sentence){
         return sentence.substring(0,1).toUpperCase()+sentence.substring(1).toLowerCase();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+        return false;
     }
 }
