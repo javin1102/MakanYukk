@@ -103,7 +103,7 @@
                     android:layout_height="15dp"
                     app:srcCompat="@drawable/icon_arrow_forward"
                     android:background="@android:color/transparent"
-                    android:layout_marginStart="170dp" />
+                    android:layout_marginStart="220dp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

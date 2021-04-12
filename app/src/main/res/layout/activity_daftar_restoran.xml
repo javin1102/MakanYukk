@@ -6,710 +6,831 @@
     <data>
 
     </data>
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/layout_bg"
-        tools:context=".DaftarRestoranActivity"
-        android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="10dp"
-            android:background="@color/white"
-            android:id="@+id/daftar_res_toolbar"
-            style="@style/Theme.MyFancyTheme"
-            android:backgroundTint="@color/golden_bg">
 
-            <TextView
-                style="@style/general_textstyle"
-                android:text="Daftar Restoran"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@color/white" />
-
-        </androidx.appcompat.widget.Toolbar>
+        >
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@color/layout_bg"
+            android:orientation="vertical"
+            tools:context=".DaftarRestoranActivity">
 
-            <ScrollView
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/daftar_res_toolbar"
+                style="@style/Theme.MyFancyTheme"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:backgroundTint="@color/golden_bg"
+                android:elevation="10dp">
 
-                <LinearLayout
+                <TextView
+                    style="@style/general_textstyle"
+                    android:text="Daftar Restoran"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <RelativeLayout
-                        android:id="@+id/daftar_res_foto_layout"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:background="@color/white"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="10dp">
-
-                        <TextView
-                            android:id="@+id/daftar_res_foto_TV"
-                            style="@style/general_textstyle"
-                            android:text="Foto Restoran"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            style="@style/general_textstyle"
-                            android:layout_marginStart="160dp"
-                            android:layout_toEndOf="@id/daftar_res_foto_TV"
-                            android:text="Tambah"
-                            android:textColor="@color/golden_bg"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:id="@+id/daftar_res_tambah_TV"/>
-
-                        <TextView
-                            android:id="@+id/daftar_res_foto_deskripsi"
-                            style="@style/general_textstyle"
-                            android:layout_below="@id/daftar_res_foto_TV"
-                            android:text="(Max 3, Rekomendasi: 1280x720)"
-                            android:textSize="10sp" />
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/daftar_res_foto1"
-                            android:layout_width="match_parent"
-                            android:layout_height="170dp"
-                            android:layout_below="@id/daftar_res_foto_deskripsi"
-                            android:layout_marginVertical="10dp"
-                            android:visibility="gone"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="2dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@color/light_gray"
-                                android:id="@+id/daftar_res_foto1_IV"
-                                android:scaleType="centerCrop"/>
-
-                            <ImageButton
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginStart="340dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="#FF6060"
-                                android:src="@drawable/icon_close"
-                                android:id="@+id/daftar_res_foto1_close"/>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/daftar_res_foto2"
-                            android:layout_width="match_parent"
-                            android:layout_height="170dp"
-                            android:layout_below="@id/daftar_res_foto1"
-                            android:layout_marginVertical="10dp"
-                            android:visibility="gone"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="2dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@color/light_gray"
-                                android:id="@+id/daftar_res_foto2_IV"
-                                android:scaleType="centerCrop"/>
-
-                            <ImageButton
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:id="@+id/daftar_res_foto2_close"
-                                android:layout_marginStart="340dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="#FF6060"
-                                android:src="@drawable/icon_close" />
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/daftar_res_foto3"
-                            android:layout_width="match_parent"
-                            android:layout_height="170dp"
-                            android:layout_below="@id/daftar_res_foto2"
-                            android:layout_marginVertical="10dp"
-                            android:visibility="gone"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="2dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@color/light_gray"
-                                android:id="@+id/daftar_res_foto3_IV"
-                                android:scaleType="centerCrop"/>
-
-                            <ImageButton
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:id="@+id/daftar_res_foto3_close"
-                                android:layout_marginStart="340dp"
-                                android:layout_marginTop="5dp"
-                                android:background="@drawable/circle"
-                                android:backgroundTint="#FF6060"
-                                android:src="@drawable/icon_close" />
-                        </androidx.cardview.widget.CardView>
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:background="@color/white"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="10dp">
-
-                        <TextView
-                            android:id="@+id/daftar_res_resAnda_TV"
-                            style="@style/general_textstyle"
-                            android:text="Restoran Anda"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                        android:orientation="vertical">
 
                         <RelativeLayout
-                            android:id="@+id/daftar_res_namaRes_section"
+                            android:id="@+id/daftar_res_logo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_resAnda_TV"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
-
-
-                            <TextView
-                                android:id="@+id/daftar_res_namaRes_TV"
-                                style="@style/general_textstyle"
-                                android:text="Nama Restoran"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-
-                                tools:ignore="NotSibling" />
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/white"
+                            android:paddingHorizontal="20dp"
+                            android:paddingVertical="10dp">
 
                             <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_namaRes_TV" />
-
-                            <EditText
-                                android:id="@+id/daftar_res_namaRes_ET"
+                                android:id="@+id/daftar_res_logo_TV"
                                 style="@style/general_textstyle"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_namaRes_TV"
-                                android:imeOptions="actionDone"
-                                android:paddingHorizontal="5dp"
-                                android:singleLine="true"
-                                android:textSize="13sp" />
-
-                            <TextView
-                                android:id="@+id/daftar_res_namaRes_counter"
-                                style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_namaRes_ET"
-                                android:layout_marginStart="280dp"
-                                android:text="0"
-                                android:textSize="10sp" />
-
-                            <TextView
-                                android:id="@+id/daftar_res_namaRes_limit"
-                                style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_namaRes_ET"
-                                android:layout_toEndOf="@id/daftar_res_namaRes_counter"
-                                android:text="/30"
-                                android:textSize="10sp" />
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/daftar_res_email_section"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_namaRes_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
-
-                            <TextView
-                                android:id="@+id/daftar_res_email_TV"
-                                style="@style/general_textstyle"
-                                android:text="Email Restoran"
-                                android:textSize="14sp"
+                                android:text="Logo Restoran"
+                                android:textSize="18sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_email_TV" />
-
-                            <EditText
-                                android:id="@+id/daftar_res_email_ET"
-                                style="@style/general_textstyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_email_TV"
-                                android:imeOptions="actionDone"
-                                android:inputType="textEmailAddress"
-                                android:paddingHorizontal="5dp"
-                                android:singleLine="true"
-                                android:textSize="13sp" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/daftar_res_kategori_section"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_email_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
+                                android:layout_toEndOf="@id/daftar_res_logo_TV" />
 
                             <TextView
-                                android:id="@+id/daftar_res_kategori_TV"
+                                android:id="@+id/daftar_res_logo_deskripsi"
                                 style="@style/general_textstyle"
-                                android:text="Kategori"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_kategori_TV" />
-
-                            <TextView
-                                android:id="@+id/daftar_res_kategori_deskripsi"
-                                style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_kategori_TV"
-                                android:text="(Max 3)"
+                                android:layout_below="@id/daftar_res_logo_TV"
+                                android:text="(Rekomendasi: 500x500)"
                                 android:textSize="10sp" />
 
                             <TextView
-                                android:id="@+id/daftar_res_kategori_tambah"
+                                android:id="@+id/daftar_res_logo_tambah_TV"
                                 style="@style/general_textstyle"
-                                android:layout_marginStart="260dp"
+                                android:layout_marginStart="160dp"
+                                android:layout_toEndOf="@id/daftar_res_logo_TV"
                                 android:text="Tambah"
                                 android:textColor="@color/golden_bg"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/daftar_res_kategori_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="60dp"
-                                android:layout_below="@id/daftar_res_kategori_deskripsi"
-                                android:gravity="center_vertical"
-                                android:visibility="gone">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
 
-                                <TextView
-                                    android:id="@+id/daftar_res_category1_TV"
+                                android:layout_below="@id/daftar_res_logo_deskripsi"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_horizontal">
 
-                                    style="@style/general_textstyle"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:background="@drawable/corner_bg"
-                                    android:backgroundTint="#FFD15C"
-                                    android:paddingHorizontal="10dp"
-                                    android:paddingVertical="8dp"
-                                    android:text="asdasdsad"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintLeft_toLeftOf="parent"
-                                    app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    app:cardCornerRadius="10dp">
 
+                                    <ImageView
+                                        android:id="@+id/daftar_res_logo_IV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/light_gray"
+                                        android:scaleType="fitXY" />
+                                </androidx.cardview.widget.CardView>
 
-                                <ImageButton
-                                    android:id="@+id/daftar_res_kategori1_close"
-                                    android:layout_width="23dp"
-                                    android:layout_height="23dp"
-                                    android:background="@drawable/circle"
-                                    android:backgroundTint="@color/red"
-                                    android:src="@drawable/icon_close_2"
-                                    app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="60dp"
-                                android:layout_below="@id/daftar_res_kategori_deskripsi"
-                                android:layout_toEndOf="@id/daftar_res_kategori_1"
-                                android:id="@+id/daftar_res_kategori_2"
-                                android:visibility="gone"
-                                android:gravity="center_vertical">
-                                <TextView
-                                    style="@style/general_textstyle"
-
-                                    android:background="@drawable/corner_bg"
-                                    android:backgroundTint="#FFD15C"
-                                    android:paddingHorizontal="10dp"
-                                    android:paddingVertical="8dp"
-                                    android:text="asdasdsad"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:id="@+id/daftar_res_category2_TV"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintLeft_toLeftOf="parent"
-                                    app:layout_constraintRight_toRightOf="parent"/>
-
-
-                                <ImageButton
-                                    android:id="@+id/daftar_res_kategori2_close"
-                                    android:layout_width="23dp"
-                                    android:layout_height="23dp"
-                                    android:background="@drawable/circle"
-                                    android:backgroundTint="@color/red"
-                                    android:src="@drawable/icon_close_2"
-                                    app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-
-                                    />
-
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="60dp"
-                                android:layout_below="@id/daftar_res_kategori_deskripsi"
-                                android:layout_toEndOf="@id/daftar_res_kategori_2"
-                                android:id="@+id/daftar_res_kategori_3"
-                                android:visibility="gone"
-                                android:gravity="center_vertical">
-                                <TextView
-                                    style="@style/general_textstyle"
-
-                                    android:background="@drawable/corner_bg"
-                                    android:backgroundTint="#FFD15C"
-                                    android:paddingHorizontal="10dp"
-                                    android:paddingVertical="8dp"
-                                    android:text="asdasdsad"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:id="@+id/daftar_res_category3_TV"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintLeft_toLeftOf="parent"
-                                    app:layout_constraintRight_toRightOf="parent"/>
-
-
-                                <ImageButton
-                                    android:id="@+id/daftar_res_kategori3_close"
-                                    android:layout_width="23dp"
-                                    android:layout_height="23dp"
-                                    android:background="@drawable/circle"
-                                    android:backgroundTint="@color/red"
-                                    android:src="@drawable/icon_close_2"
-                                    app:layout_constraintRight_toRightOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-
-                                    />
-
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
+                            </LinearLayout>
 
 
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@+id/daftar_res_description_section"
+                            android:id="@+id/daftar_res_foto_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_kategori_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/white"
+                            android:paddingHorizontal="20dp"
+                            android:paddingVertical="10dp">
 
                             <TextView
-                                android:id="@+id/daftar_res_description_TV"
+                                android:id="@+id/daftar_res_foto_TV"
                                 style="@style/general_textstyle"
-                                android:text="Deskripsi Restoran Anda"
-                                android:textSize="14sp"
+                                android:text="Foto Restoran"
+                                android:textSize="18sp"
                                 android:textStyle="bold" />
 
-                            <EditText
-                                android:id="@+id/daftar_res_description_ET"
+                            <TextView
+                                android:id="@+id/daftar_res_tambah_TV"
                                 style="@style/general_textstyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_description_TV"
-                                android:imeOptions="actionDone"
-                                android:inputType="textMultiLine"
-                                android:paddingHorizontal="5dp"
-                                android:textSize="13sp" />
+                                android:layout_marginStart="160dp"
+                                android:layout_toEndOf="@id/daftar_res_foto_TV"
+                                android:text="Tambah"
+                                android:textColor="@color/golden_bg"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/daftar_res_description_counter"
+                                android:id="@+id/daftar_res_foto_deskripsi"
                                 style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_description_ET"
-                                android:layout_marginStart="280dp"
-                                android:text="0"
-                                android:textSize="10sp" />
-
-                            <TextView
-                                android:id="@+id/daftar_res_description_limit"
-                                style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_description_ET"
-                                android:layout_toEndOf="@id/daftar_res_description_counter"
-                                android:text="/200"
-                                android:textSize="10sp" />
-
-                        </RelativeLayout>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:background="@color/white"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="10dp">
-
-                        <TextView
-                            android:id="@+id/daftar_res_lokasi_TV"
-                            style="@style/general_textstyle"
-                            android:text="Lokasi"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <RelativeLayout
-                            android:id="@+id/daftar_res_alamat_section"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_lokasi_TV"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
-
-                            <TextView
-                                android:id="@+id/daftar_res_alamat_TV"
-                                style="@style/general_textstyle"
-                                android:text="Alamat"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-
-                                tools:ignore="NotSibling" />
-
-                            <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_alamat_TV" />
-
-                            <EditText
-                                android:id="@+id/daftar_res_alamat_ET"
-                                style="@style/general_textstyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_alamat_TV"
-                                android:imeOptions="actionDone"
-                                android:paddingHorizontal="5dp"
-                                android:singleLine="true"
-                                android:textSize="13sp" />
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/daftar_res_kota_section"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_alamat_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
-
-                            <TextView
-                                android:id="@+id/daftar_res_kota_TV"
-                                style="@style/general_textstyle"
-                                android:text="Kota"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-
-                                tools:ignore="NotSibling" />
-
-                            <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_kota_TV" />
-
-                            <EditText
-                                android:id="@+id/daftar_res_kota_ET"
-                                style="@style/general_textstyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_kota_TV"
-                                android:imeOptions="actionDone"
-                                android:paddingHorizontal="5dp"
-                                android:singleLine="true"
-                                android:textSize="13sp" />
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/daftar_res_kodepos_section"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_kota_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
-
-                            <TextView
-                                android:id="@+id/daftar_res_kodepos_TV"
-                                style="@style/general_textstyle"
-                                android:text="Kode Pos"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-
-                                tools:ignore="NotSibling" />
-
-                            <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_kodepos_TV" />
-
-                            <EditText
-                                android:id="@+id/daftar_res_kodepos_ET"
-
-                                android:layout_width="60dp"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_kodepos_TV"
-                                android:imeOptions="actionDone"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:paddingHorizontal="5dp"
-                                android:textSize="13sp" />
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/daftar_res_latitude_section"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_kodepos_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
-
-                            <TextView
-                                android:id="@+id/daftar_res_latitude_TV"
-                                style="@style/general_textstyle"
-                                android:text="Latitude"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-
-                                tools:ignore="NotSibling" />
-
-                            <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_latitude_TV" />
-
-                            <TextView
-                                android:id="@+id/daftar_res_latitude_description"
-                                style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_latitude_TV"
-                                android:text="(dapat di cari di internet sesuai dengan lokasi tempat makan anda)"
-                                android:textColor="#595959"
+                                android:layout_below="@id/daftar_res_foto_TV"
+                                android:text="(Max 3, Rekomendasi: 1280x720)"
                                 android:textSize="10sp" />
 
 
-                            <EditText
-                                android:id="@+id/daftar_res_latitude_ET"
-
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/daftar_res_foto1"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_latitude_description"
-                                android:imeOptions="actionDone"
-                                android:inputType="numberDecimal"
-                                android:maxLength="5"
-                                android:paddingHorizontal="5dp"
-                                android:textSize="13sp" />
+                                android:layout_height="170dp"
+                                android:layout_below="@id/daftar_res_foto_deskripsi"
+                                android:layout_marginVertical="10dp"
+                                android:visibility="visible"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+
+                                <ImageView
+                                    android:id="@+id/daftar_res_foto1_IV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@color/light_gray" />
+
+
+                                <ImageButton
+                                    android:id="@+id/daftar_res_foto1_close"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="340dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="#FF6060"
+                                    android:src="@drawable/icon_close" />
+
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/daftar_res_foto2"
+                                android:layout_width="match_parent"
+                                android:layout_height="170dp"
+                                android:layout_below="@id/daftar_res_foto1"
+                                android:layout_marginVertical="10dp"
+                                android:visibility="visible"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+
+                                <ImageView
+                                    android:id="@+id/daftar_res_foto2_IV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@color/light_gray" />
+
+                                <ImageButton
+                                    android:id="@+id/daftar_res_foto2_close"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="340dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="#FF6060"
+                                    android:src="@drawable/icon_close" />
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/daftar_res_foto3"
+                                android:layout_width="match_parent"
+                                android:layout_height="170dp"
+                                android:layout_below="@id/daftar_res_foto2"
+                                android:layout_marginVertical="10dp"
+                                android:visibility="visible"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="2dp">
+
+                                <ImageView
+                                    android:id="@+id/daftar_res_foto3_IV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@color/light_gray" />
+
+                                <ImageButton
+                                    android:id="@+id/daftar_res_foto3_close"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="340dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@drawable/circle"
+                                    android:backgroundTint="#FF6060"
+                                    android:src="@drawable/icon_close" />
+                            </androidx.cardview.widget.CardView>
+
 
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@+id/daftar_res_longitude_section"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/daftar_res_latitude_section"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/white"
+                            android:paddingHorizontal="20dp"
+                            android:paddingVertical="10dp">
 
                             <TextView
-                                android:id="@+id/daftar_res_longitude_TV"
+                                android:id="@+id/daftar_res_resAnda_TV"
                                 style="@style/general_textstyle"
-                                android:text="Longitude"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
+                                android:text="Restoran Anda"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
-                                tools:ignore="NotSibling" />
-
-                            <TextView
-                                style="@style/required_star"
-                                android:layout_toEndOf="@id/daftar_res_longitude_TV" />
-
-                            <TextView
-                                android:id="@+id/daftar_res_longitude_description"
-                                style="@style/general_textstyle"
-                                android:layout_below="@id/daftar_res_longitude_TV"
-                                android:text="(dapat di cari di internet sesuai dengan lokasi tempat makan anda)"
-                                android:textColor="#595959"
-                                android:textSize="10sp" />
-
-
-                            <EditText
-                                android:id="@+id/daftar_res_longitude_ET"
-
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_namaRes_section"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/daftar_res_longitude_description"
-                                android:imeOptions="actionDone"
-                                android:inputType="numberDecimal"
-                                android:maxLength="5"
-                                android:paddingHorizontal="5dp"
-                                android:textSize="13sp" />
+                                android:layout_below="@id/daftar_res_resAnda_TV"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+
+                                <TextView
+                                    android:id="@+id/daftar_res_namaRes_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Nama Restoran"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+
+                                    tools:ignore="NotSibling" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_namaRes_TV" />
+
+                                <EditText
+                                    android:id="@+id/daftar_res_namaRes_ET"
+                                    style="@style/general_textstyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_namaRes_TV"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textCapWords"
+                                    android:paddingHorizontal="5dp"
+                                    android:singleLine="true"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_namaRes_counter"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_namaRes_ET"
+                                    android:layout_marginStart="280dp"
+                                    android:text="0"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_namaRes_limit"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_namaRes_ET"
+                                    android:layout_toEndOf="@id/daftar_res_namaRes_counter"
+                                    android:text="/30"
+                                    android:textSize="10sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_email_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_namaRes_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_email_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Email Restoran"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_email_TV" />
+
+                                <EditText
+                                    android:id="@+id/daftar_res_email_ET"
+                                    style="@style/general_textstyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_email_TV"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textEmailAddress"
+                                    android:paddingHorizontal="5dp"
+                                    android:singleLine="true"
+                                    android:textSize="13sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_kategori_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_email_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_kategori_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Kategori"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_kategori_TV" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_kategori_deskripsi"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_kategori_TV"
+                                    android:text="(Max 3)"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_kategori_tambah"
+                                    style="@style/general_textstyle"
+                                    android:layout_marginStart="260dp"
+                                    android:text="Tambah"
+                                    android:textColor="@color/golden_bg"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/daftar_res_kategori_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="60dp"
+                                    android:layout_below="@id/daftar_res_kategori_deskripsi"
+                                    android:gravity="center_vertical"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/daftar_res_category1_TV"
+
+                                        style="@style/general_textstyle"
+                                        android:layout_marginHorizontal="10dp"
+                                        android:background="@drawable/corner_bg"
+                                        android:backgroundTint="#FFD15C"
+                                        android:paddingHorizontal="10dp"
+                                        android:paddingVertical="8dp"
+                                        android:text="asdasdsad"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                    <ImageButton
+                                        android:id="@+id/daftar_res_kategori1_close"
+                                        android:layout_width="23dp"
+                                        android:layout_height="23dp"
+                                        android:background="@drawable/circle"
+                                        android:backgroundTint="@color/red"
+                                        android:src="@drawable/icon_close_2"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/daftar_res_kategori_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="60dp"
+                                    android:layout_below="@id/daftar_res_kategori_deskripsi"
+                                    android:layout_toEndOf="@id/daftar_res_kategori_1"
+                                    android:gravity="center_vertical"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/daftar_res_category2_TV"
+
+                                        style="@style/general_textstyle"
+                                        android:layout_marginHorizontal="10dp"
+                                        android:background="@drawable/corner_bg"
+                                        android:backgroundTint="#FFD15C"
+                                        android:paddingHorizontal="10dp"
+                                        android:paddingVertical="8dp"
+                                        android:text="asdasdsad"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                    <ImageButton
+                                        android:id="@+id/daftar_res_kategori2_close"
+                                        android:layout_width="23dp"
+                                        android:layout_height="23dp"
+                                        android:background="@drawable/circle"
+                                        android:backgroundTint="@color/red"
+                                        android:src="@drawable/icon_close_2"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+
+                                        />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/daftar_res_kategori_3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="60dp"
+                                    android:layout_below="@id/daftar_res_kategori_deskripsi"
+                                    android:layout_toEndOf="@id/daftar_res_kategori_2"
+                                    android:gravity="center_vertical"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:id="@+id/daftar_res_category3_TV"
+
+                                        style="@style/general_textstyle"
+                                        android:layout_marginHorizontal="10dp"
+                                        android:background="@drawable/corner_bg"
+                                        android:backgroundTint="#FFD15C"
+                                        android:paddingHorizontal="10dp"
+                                        android:paddingVertical="8dp"
+                                        android:text="asdasdsad"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                    <ImageButton
+                                        android:id="@+id/daftar_res_kategori3_close"
+                                        android:layout_width="23dp"
+                                        android:layout_height="23dp"
+                                        android:background="@drawable/circle"
+                                        android:backgroundTint="@color/red"
+                                        android:src="@drawable/icon_close_2"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+
+                                        />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_description_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_kategori_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_description_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Deskripsi Restoran Anda"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/daftar_res_description_ET"
+                                    style="@style/general_textstyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_description_TV"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textMultiLine|textCapSentences"
+                                    android:paddingHorizontal="5dp"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_description_counter"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_description_ET"
+                                    android:layout_marginStart="280dp"
+                                    android:text="0"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_description_limit"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_description_ET"
+                                    android:layout_toEndOf="@id/daftar_res_description_counter"
+                                    android:text="/200"
+                                    android:textSize="10sp" />
+
+                            </RelativeLayout>
 
                         </RelativeLayout>
 
-                    </RelativeLayout>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginVertical="70dp"
-                        app:cardBackgroundColor="#F8C84F"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="2dp"
-                        android:layout_marginHorizontal="30dp">
-
-                        <TextView
-                            android:id="@+id/daftar_res_daftar_button"
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:text="Daftar"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/white"
+                            android:paddingHorizontal="20dp"
+                            android:paddingVertical="10dp">
+
+                            <TextView
+                                android:id="@+id/daftar_res_lokasi_TV"
+                                style="@style/general_textstyle"
+                                android:text="Lokasi"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_alamat_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_lokasi_TV"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_alamat_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Alamat"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+
+                                    tools:ignore="NotSibling" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_alamat_TV" />
+
+                                <EditText
+                                    android:id="@+id/daftar_res_alamat_ET"
+                                    style="@style/general_textstyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_alamat_TV"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="textCapSentences"
+                                    android:paddingHorizontal="5dp"
+                                    android:singleLine="true"
+                                    android:textSize="13sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_kota_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_alamat_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_kota_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Kota"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+
+                                    tools:ignore="NotSibling" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_kota_TV" />
+
+                                <EditText
+                                    android:id="@+id/daftar_res_kota_ET"
+                                    style="@style/general_textstyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_kota_TV"
+                                    android:imeOptions="actionDone"
+                                    android:paddingHorizontal="5dp"
+                                    android:singleLine="true"
+                                    android:textSize="13sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_kodepos_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_kota_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_kodepos_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Kode Pos"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+
+                                    tools:ignore="NotSibling" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_kodepos_TV" />
+
+                                <EditText
+                                    android:id="@+id/daftar_res_kodepos_ET"
+
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_kodepos_TV"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="number"
+                                    android:maxLength="5"
+                                    android:paddingHorizontal="5dp"
+                                    android:textSize="13sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_latitude_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_kodepos_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_latitude_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Latitude"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+
+                                    tools:ignore="NotSibling" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_latitude_TV" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_latitude_description"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_latitude_TV"
+                                    android:text="(dapat di cari di internet sesuai dengan lokasi tempat makan anda)"
+                                    android:textColor="#595959"
+                                    android:textSize="10sp" />
 
 
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-            </ScrollView>
+                                <EditText
+                                    android:id="@+id/daftar_res_latitude_ET"
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_latitude_description"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+
+                                    android:paddingHorizontal="5dp"
+                                    android:textSize="13sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/daftar_res_longitude_section"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/daftar_res_latitude_section"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:id="@+id/daftar_res_longitude_TV"
+                                    style="@style/general_textstyle"
+                                    android:text="Longitude"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+
+                                    tools:ignore="NotSibling" />
+
+                                <TextView
+                                    style="@style/required_star"
+                                    android:layout_toEndOf="@id/daftar_res_longitude_TV" />
+
+                                <TextView
+                                    android:id="@+id/daftar_res_longitude_description"
+                                    style="@style/general_textstyle"
+                                    android:layout_below="@id/daftar_res_longitude_TV"
+                                    android:text="(dapat di cari di internet sesuai dengan lokasi tempat makan anda)"
+                                    android:textColor="#595959"
+                                    android:textSize="10sp" />
+
+
+                                <EditText
+                                    android:id="@+id/daftar_res_longitude_ET"
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/daftar_res_longitude_description"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+
+                                    android:paddingHorizontal="5dp"
+                                    android:textSize="13sp" />
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginVertical="70dp"
+                            app:cardBackgroundColor="#F8C84F"
+                            app:cardCornerRadius="30dp"
+                            app:cardElevation="2dp">
+
+                            <TextView
+                                android:id="@+id/daftar_res_daftar_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:text="Daftar"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
 
         </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:id="@+id/progressBarHolder"
+            android:visibility="gone"
+            android:animateLayoutChanges="true"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/daftar_res_progressBar"
+                    android:indeterminate="true"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/general_textstyle"
+                    android:text="Loading...."
+                    android:textStyle="bold"
+                    android:textColor="@color/darken_golden"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+            </LinearLayout>
 
 
-    </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
 </layout>

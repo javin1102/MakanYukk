@@ -8,5 +8,6 @@ public class Util {
     public static final String CATEGORY_NAME = "category_name";
     public static final String MAIN_CATEGORY_COLLECTION_REF = "Category";
     public static final String EXPLORE_CATEGORY_COLLECTION_REF = "ExploreCategory";
+    public static final String USER_RESTAURANT_COLLECTION_REF = "Restaurants";
 
 }
