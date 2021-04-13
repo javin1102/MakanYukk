@@ -1,5 +1,7 @@
 package com.example.makanyukk.model;
 
+import com.google.firebase.firestore.GeoPoint;
+
 import java.util.List;
 
 public class Restaurant {
@@ -11,11 +13,19 @@ public class Restaurant {
     private String address;
     private String city;
     private String zipCode;
-    private String latitude;
-    private String longitude;
+    private GeoPoint geoPoint;
+    private float rating;
+
+
     private String name;
     private String userId;
 
+
+
+    public Restaurant(List<Category> categories){
+        this.categories = categories;
+    }
+    public Restaurant(){}
     public String getLogoUrl() {
         return logoUrl;
     }
@@ -42,9 +52,7 @@ public class Restaurant {
         this.name = name;
     }
 
-    public Restaurant(List<Category> categories){
-        this.categories = categories;
-    }
+
 
     public String getId() {
         return id;
@@ -109,20 +117,19 @@ public class Restaurant {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
-    public String getLatitude() {
-        return latitude;
+    public GeoPoint getGeoPoint() {
+        return geoPoint;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
+    public void setGeoPoint(GeoPoint geoPoint) {
+        this.geoPoint = geoPoint;
     }
 
-    public String getLongitude() {
-        return longitude;
+    public float getRating() {
+        return rating;
     }
 
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

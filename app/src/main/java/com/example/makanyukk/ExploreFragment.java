@@ -19,11 +19,16 @@ import com.example.makanyukk.adapter.ExploreListViewAdapter;
 import com.example.makanyukk.databinding.FragmentExploreBinding;
 import com.example.makanyukk.interfaces.ExploreCategoryClickListener;
 import com.example.makanyukk.model.Category;
+import com.example.makanyukk.model.Restaurant;
 import com.example.makanyukk.util.Util;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +38,13 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference categoryReference = db.collection(Util.EXPLORE_CATEGORY_COLLECTION_REF);
+    private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
 
     private ExploreListViewAdapter exploreListViewAdapter;
 
     private List<Category> categoryList;
     private FragmentExploreBinding binding;
+    private List<Restaurant> restaurantList;
 
 
 
@@ -64,7 +71,7 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         categoryList = new ArrayList<>();
-
+        restaurantList = new ArrayList<>();
 
     }
 
@@ -75,7 +82,7 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
         //Initial Radio Button State
         binding.RadioGroup.check(R.id.radiobutton1);
         changeColorClicked(binding.radiobutton1);
-        Log.d("1123", "onViewCreated: "+binding.RadioGroup.getChildCount());
+        //Log.d("1123", "onViewCreated: "+binding.RadioGroup.getChildCount());
         //SETTING RADIO GROUP
         binding.RadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             changeColorDefault(binding.radiobutton1);
@@ -108,9 +115,7 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
             }
         });
 
-        //SETTING EXPLORE LIST
-        exploreListViewAdapter = new ExploreListViewAdapter();
-        binding.exploreListRv.setAdapter(exploreListViewAdapter);
+
 
         //GET EXPLORE CATEGORY FROM DB FIRESTORE
         categoryReference.get().addOnCompleteListener(task -> {
@@ -132,9 +137,19 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
            });
         });
 
+        restaurantReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
+                    Restaurant restaurant = queryDocumentSnapshot.toObject(Restaurant.class);
+                    restaurantList.add(restaurant);
+                }
 
-
-
+                //SETTING EXPLORE LIST
+                exploreListViewAdapter = new ExploreListViewAdapter(restaurantList);
+                binding.exploreListRv.setAdapter(exploreListViewAdapter);
+            }
+        });
 
     }
 

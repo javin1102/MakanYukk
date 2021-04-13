@@ -35,6 +35,7 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -129,8 +130,8 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 String address = capitalize(binding.daftarResAlamatET.getText().toString().trim());
                 String city = capitalize(binding.daftarResKotaET.getText().toString().trim());
                 String zipCode = binding.daftarResKodeposET.getText().toString().trim();
-                String latitude = binding.daftarResLatitudeET.getText().toString().trim();
-                String longitude = binding.daftarResLongitudeET.getText().toString().trim();
+                double latitude = Double.parseDouble(binding.daftarResLatitudeET.getText().toString().trim());
+                double longitude = Double.parseDouble(binding.daftarResLongitudeET.getText().toString().trim());
                 insertResData(name,description,email,address,city,zipCode,latitude,longitude);
                 Util.hideKeyboard(this);
             }
@@ -338,7 +339,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
         }
     }
 
-    private void insertResData(String resName, String resDescription,String email, String address, String city, String zipCode, String latitude, String longitude){
+    private void insertResData(String resName, String resDescription,String email, String address, String city, String zipCode, double latitude, double longitude){
 
         //Loading Screen Animation
         binding.daftarResDaftarButton.setEnabled(false);
@@ -352,6 +353,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
 
         String id = restaurantReference.document().getId();
         List<String> resUri = new ArrayList<>();
+        GeoPoint geoPoint = new GeoPoint(latitude,longitude);
         Restaurant restaurant = new Restaurant(categoryList);
         restaurant.setName(resName);
         restaurant.setDescription(resDescription);
@@ -360,9 +362,9 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
         restaurant.setAddress(address);
         restaurant.setZipCode(zipCode);
         restaurant.setCity(city);
-        restaurant.setLatitude(latitude);
-        restaurant.setLongitude(longitude);
+        restaurant.setGeoPoint(geoPoint);
         restaurant.setUserId(UsersAPI.getInstance().getUserId());
+        restaurant.setRating(1f);
 
         //Adding logo to storage
         StorageReference filepath = storageReference.child("Restaurants").child(id).child("res_logo").child(resName+Timestamp.now().getNanoseconds());
@@ -412,6 +414,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                         }
 
                     }
+
 
 
                 }).addOnFailureListener(new OnFailureListener() {

@@ -5,88 +5,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
-
+<androidx.cardview.widget.CardView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:id="@+id/res_logo_container"
+    android:layout_marginVertical="20dp"
+    android:layout_marginHorizontal="20dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    >
     <ImageView
         android:id="@+id/res_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo4"
-        android:scaleType="fitXY"
-        android:layout_margin="20dp"
-        android:background="@drawable/corner_bg"
-        android:backgroundTint="@color/darken_golden"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/logo1"
         android:padding="10dp"/>
+
+
+</androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/res_name"
-        android:layout_width="290dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/montserrat"
+        android:singleLine="true"
         android:text="Ayam Geprek Bang Joni"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:singleLine="true"
-        android:ellipsize="end"
-        app:layout_constraintStart_toEndOf="@+id/res_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/montserrat"
-        android:layout_marginHorizontal="10dp"
-        />
+        app:layout_constraintStart_toEndOf="@+id/res_logo_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/res_short_desc"
-        android:layout_width="290dp"
+        android:id="@+id/res_category"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:text="Menyajikan berbagai macam ayam geprek"
-        app:layout_constraintStart_toEndOf="@+id/res_logo"
-        app:layout_constraintTop_toBottomOf="@+id/res_name"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="15dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/montserrat"
+        android:singleLine="true"
+        android:text="Fine Dining, Steak"
         android:textColor="@color/gray"
         android:textSize="12sp"
-        android:fontFamily="@font/montserrat"
-        android:layout_marginHorizontal="10dp"
-        android:maxLines="2"
-        android:ellipsize="end"/>
+        app:layout_constraintStart_toEndOf="@+id/res_logo_container"
+        app:layout_constraintTop_toBottomOf="@+id/res_name" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        app:srcCompat="@drawable/icon_location_bottomnav"
-        app:layout_constraintStart_toEndOf="@+id/res_logo"
-        app:layout_constraintTop_toBottomOf="@id/res_short_desc"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginVertical="15dp"/>
+        android:layout_marginVertical="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@+id/res_logo_container"
+        app:layout_constraintTop_toBottomOf="@id/res_category"
+        app:srcCompat="@drawable/icon_location_bottomnav" />
 
     <TextView
-        android:layout_width="250dp"
+        android:id="@+id/res_location"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/res_short_desc"
-        app:layout_constraintStart_toEndOf="@id/imageView6"
         android:layout_marginVertical="14dp"
-        android:singleLine="true"
+        android:layout_marginTop="6dp"
         android:ellipsize="end"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        android:text="Jl.Mandala 2 No 34B, Jakarta Barat"
         android:fontFamily="@font/montserrat"
-        android:id="@+id/res_location"/>
+        android:singleLine="true"
+        android:text="Jl.Mandala 2 No 34B, Jakarta Barat"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView6"
+        app:layout_constraintTop_toBottomOf="@id/res_category"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/imageView6"
-        app:layout_constraintStart_toEndOf="@id/res_logo"
-        android:layout_marginVertical="10dp"
         android:layout_marginHorizontal="12dp"
-        android:singleLine="true"
+        android:layout_marginVertical="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
         android:ellipsize="end"
-        android:textColor="@color/black"
-        android:textSize="10sp"
+        android:fontFamily="@font/montserrat"
+        android:singleLine="true"
         android:text="0.3 km"
+        android:textColor="@color/black"
 
-        android:fontFamily="@font/montserrat"/>
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/res_logo_container"
+        app:layout_constraintTop_toBottomOf="@id/imageView6" />
 
     <ImageView
         android:layout_width="20dp"
@@ -99,24 +117,25 @@
         />
 
     <TextView
+        android:id="@+id/rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView6"
-        android:textColor="@color/black"
-        android:text="4.3"
-        android:fontFamily="@font/montserrat"
-        android:textSize="14sp"
-        android:layout_marginVertical="13dp"
         android:layout_marginHorizontal="15dp"
-        android:id="@+id/rating"
-        android:textStyle="bold"/>
+        android:layout_marginVertical="13dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/montserrat"
+        android:text="4.3"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView6" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         app:srcCompat="@drawable/line"
-        app:layout_constraintTop_toBottomOf="@id/res_logo"
+        app:layout_constraintTop_toBottomOf="@+id/res_logo_container"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/gray"
         android:background="@color/black"/>
