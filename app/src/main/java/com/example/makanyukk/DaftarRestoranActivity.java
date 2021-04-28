@@ -2,6 +2,7 @@ package com.example.makanyukk;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import androidx.databinding.DataBindingUtil;
 import com.example.makanyukk.databinding.ActivityDaftarRestoranBinding;
 import com.example.makanyukk.model.Category;
 import com.example.makanyukk.model.Restaurant;
+import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,14 +36,18 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class DaftarRestoranActivity extends AppCompatActivity implements View.OnClickListener,View.OnTouchListener {
@@ -92,6 +98,8 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
 
         };
 
+
+
         binding.daftarResTambahTV.setOnClickListener(v -> {
             if(imageUri.size() < 3){
                 Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -106,6 +114,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
             galleryIntent.setType("image/*");
             startActivityForResult(Intent.createChooser(galleryIntent,"Select Picture"), RES_LOGO_CODE);
         });
+
 
 
         binding.daftarResFoto1Close.setOnClickListener(this);
@@ -134,6 +143,19 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 double longitude = Double.parseDouble(binding.daftarResLongitudeET.getText().toString().trim());
                 insertResData(name,description,email,address,city,zipCode,latitude,longitude);
                 Util.hideKeyboard(this);
+            }
+        });
+
+        binding.daftarResOKButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                binding.daftarResDaftarButton.setEnabled(true);
+                binding.linearLayout.setForeground(null);
+                binding.linearLayout.setClickable(true);
+                binding.progressBarHolder.setVisibility(View.GONE);
+                startActivity(new Intent(DaftarRestoranActivity.this,RestoranAndaActivity.class));
+                finish();
             }
         });
 
@@ -273,8 +295,10 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
     private boolean isValid(){
         if(!imageUri.isEmpty() && !TextUtils.isEmpty(binding.daftarResNamaResET.getText().toString().trim()) && !TextUtils.isEmpty(binding.daftarResEmailET.getText().toString().trim()) && !categoryList.isEmpty()
         &&!TextUtils.isEmpty(binding.daftarResAlamatET.getText().toString().trim()) && !TextUtils.isEmpty(binding.daftarResKotaET.getText().toString().trim())
-                && !TextUtils.isEmpty(binding.daftarResKodeposET.getText().toString().trim()) && !TextUtils.isEmpty(binding.daftarResLatitudeET.getText().toString().trim())
-                && !TextUtils.isEmpty(binding.daftarResLongitudeET.getText().toString().trim()))
+        && !TextUtils.isEmpty(binding.daftarResKodeposET.getText().toString().trim()) && !TextUtils.isEmpty(binding.daftarResLatitudeET.getText().toString().trim())
+        && !TextUtils.isEmpty(binding.daftarResLongitudeET.getText().toString().trim())
+        &&(Double.parseDouble(binding.daftarResLatitudeET.getText().toString()) >= -90 && Double.parseDouble(binding.daftarResLatitudeET.getText().toString()) <=90 )
+        &&(Double.parseDouble(binding.daftarResLongitudeET.getText().toString()) >= -180 && Double.parseDouble(binding.daftarResLongitudeET.getText().toString()) <=180 ))
         {
             return true;
 
@@ -314,6 +338,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 binding.daftarResKategori1.setVisibility(View.VISIBLE);
                 binding.daftarResCategory1TV.setText(category1.getCategoryName());
             }
+
             if(category2 != null) {
                 binding.daftarResKategori2.setVisibility(View.VISIBLE);
                 binding.daftarResCategory2TV.setText(category2.getCategoryName());
@@ -402,27 +427,36 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                         resUri.add(uri1.toString());
                         restaurant.setImageUrl(resUri);
                         if(resUri.size() == imageUri.size()){
+                            db.collection(Util.USERS_COLLECTION_REF).document(UsersAPI.getInstance().getUserId()).update(Util.USER_HAS_RES_REF,true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
 
+                                }
+                            });
+
+                            restaurantReference.add(restaurant);
+                            RestaurantsAPI.getInstance().setRestaurant(restaurant);
                             outAnimation = new AlphaAnimation(1f, 0f);
                             outAnimation.setDuration(200);
-                            binding.progressBarHolder.setVisibility(View.GONE);
-                            binding.daftarResDaftarButton.setEnabled(true);
-                            restaurantReference.add(restaurant);
-                            binding.linearLayout.setForeground(null);
-                            binding.linearLayout.setClickable(true);
-                            binding.daftarResSV.setOnTouchListener((v, event) -> false);
+                            binding.daftarResProgressBar.setVisibility(View.GONE);
+                            binding.daftarResProgressDescription.setText("Success");
+                            binding.daftarResOKButton.setVisibility(View.VISIBLE);
+                            binding.daftarResProgressDescription.setTextColor(Color.GREEN);
+
+
                         }
 
                     }
 
 
-
+                    //fail getting download URL
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
                     }
                 });
+                //fail put file
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
@@ -430,6 +464,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 }
             });
         }
+
 
 
 

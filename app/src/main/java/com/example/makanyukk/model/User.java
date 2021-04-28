@@ -5,6 +5,7 @@ public class User {
     private String password;
     private String username;
     private String userID;
+    private Boolean hasRes;
     public User(){}
 
     public User(String email, String password, String username, String userID) {
@@ -12,6 +13,14 @@ public class User {
         this.password = password;
         this.username = username;
         this.userID = userID;
+    }
+
+    public Boolean getHasRes() {
+        return hasRes;
+    }
+
+    public void setHasRes(Boolean hasRes) {
+        this.hasRes = hasRes;
     }
 
     public String getEmail() {

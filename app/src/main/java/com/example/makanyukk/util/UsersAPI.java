@@ -6,6 +6,7 @@ public class UsersAPI extends Application {
     private static UsersAPI instance;
     private String username,userId;
     private String phoneNumber;
+    private boolean hasRes;
 
 
 
@@ -41,5 +42,13 @@ public class UsersAPI extends Application {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isHasRes() {
+        return hasRes;
+    }
+
+    public void setHasRes(boolean hasRes) {
+        this.hasRes = hasRes;
     }
 }

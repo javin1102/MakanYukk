@@ -143,6 +143,7 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
                 for(QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots){
                     Restaurant restaurant = queryDocumentSnapshot.toObject(Restaurant.class);
                     restaurantList.add(restaurant);
+                    Log.d("1102", "onSuccess: "+restaurant.getName());
                 }
 
                 //SETTING EXPLORE LIST

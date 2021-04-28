@@ -36,7 +36,7 @@
                     android:text="Daftar Restoran"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -804,7 +804,7 @@
             android:animateLayoutChanges="true"
             android:layout_gravity="center"
             app:cardCornerRadius="10dp"
-            app:cardElevation="0dp">
+            app:cardElevation="5dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -817,7 +817,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/daftar_res_progressBar"
                     android:indeterminate="true"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:visibility="visible"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -826,7 +827,22 @@
                     android:textStyle="bold"
                     android:textColor="@color/darken_golden"
                     android:layout_gravity="center"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:id="@+id/daftar_res_progress_description"
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/corner_bg"
+                    android:backgroundTint="@color/golden_bg"
+                    android:text="OK"
+                    android:textColor="@color/white"
+                    style="@style/general_textstyle"
+                    android:layout_marginVertical="20dp"
+                    android:id="@+id/daftar_res_OK_Button"
+                    android:visibility="gone"
+                    />
 
             </LinearLayout>
 

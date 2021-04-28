@@ -43,7 +43,7 @@ public class ProfileFragment extends Fragment {
         binding.profileDaftarRes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),DaftarRestoranActivity.class));
+                startActivity(new Intent(getActivity(),RestoranAndaActivity.class));
             }
         });
 

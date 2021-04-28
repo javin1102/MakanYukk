@@ -59,7 +59,4 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
 
-
-
-
 }
