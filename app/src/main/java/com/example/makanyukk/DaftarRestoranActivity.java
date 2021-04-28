@@ -28,6 +28,7 @@ import androidx.databinding.DataBindingUtil;
 import com.example.makanyukk.databinding.ActivityDaftarRestoranBinding;
 import com.example.makanyukk.model.Category;
 import com.example.makanyukk.model.Restaurant;
+import com.example.makanyukk.model.User;
 import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
@@ -40,6 +41,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -123,6 +125,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
         binding.daftarResKategori1Close.setOnClickListener(this);
         binding.daftarResKategori2Close.setOnClickListener(this);
         binding.daftarResKategori3Close.setOnClickListener(this);
+        binding.daftarResLogoClose.setOnClickListener(this);
 
 
         binding.daftarResKategoriTambah.setOnClickListener(v->{
@@ -133,11 +136,11 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
 
         binding.daftarResDaftarButton.setOnClickListener(v -> {
             if(isValid()){
-                String name = capitalize(binding.daftarResNamaResET.getText().toString().trim());
+                String name = (binding.daftarResNamaResET.getText().toString().trim());
                 String email = binding.daftarResEmailET.getText().toString().trim();
-                String description = capitalize(binding.daftarResDescriptionET.getText().toString().trim());
-                String address = capitalize(binding.daftarResAlamatET.getText().toString().trim());
-                String city = capitalize(binding.daftarResKotaET.getText().toString().trim());
+                String description = (binding.daftarResDescriptionET.getText().toString().trim());
+                String address = (binding.daftarResAlamatET.getText().toString().trim());
+                String city = (binding.daftarResKotaET.getText().toString().trim());
                 String zipCode = binding.daftarResKodeposET.getText().toString().trim();
                 double latitude = Double.parseDouble(binding.daftarResLatitudeET.getText().toString().trim());
                 double longitude = Double.parseDouble(binding.daftarResLongitudeET.getText().toString().trim());
@@ -154,7 +157,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 binding.linearLayout.setForeground(null);
                 binding.linearLayout.setClickable(true);
                 binding.progressBarHolder.setVisibility(View.GONE);
-                startActivity(new Intent(DaftarRestoranActivity.this,RestoranAndaActivity.class));
+                setResult(RESULT_OK,getIntent());
                 finish();
             }
         });
@@ -172,21 +175,20 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
-
+            case R.id.daftar_res_logo_close:
+                binding.daftarResLogoIV.setImageURI(null);
+                break;
             case R.id.daftar_res_foto1_close:
                 removeImageList(0);
                 binding.daftarResFoto1IV.setImageURI(null);
-                binding.daftarResFoto1.setVisibility(View.GONE);
                 break;
             case R.id.daftar_res_foto2_close:
-                    removeImageList(1);
+                removeImageList(1);
                 binding.daftarResFoto2IV.setImageURI(null);
-                binding.daftarResFoto2.setVisibility(View.GONE);
                 break;
             case R.id.daftar_res_foto3_close:
                 removeImageList(2);
                 binding.daftarResFoto3IV.setImageURI(null);
-                binding.daftarResFoto3.setVisibility(View.GONE);
                 break;
 
             case R.id.daftar_res_kategori1_close:
@@ -388,7 +390,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
         restaurant.setZipCode(zipCode);
         restaurant.setCity(city);
         restaurant.setGeoPoint(geoPoint);
-        restaurant.setUserId(UsersAPI.getInstance().getUserId());
+        restaurant.setUserId(UsersAPI.getInstance().getUserID());
         restaurant.setRating(1f);
 
         //Adding logo to storage
@@ -399,7 +401,70 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                 filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        //set logo url
                         restaurant.setLogoUrl(uri.toString());
+
+                        //Adding res pics to storage
+                        for(Uri uri1 : imageUri){
+                            //Store image to storage
+                            StorageReference filePath = storageReference.child("Restaurants").child(id).child("res_images").child(resName + Timestamp.now().getNanoseconds());
+                            filePath.putFile(uri1).addOnSuccessListener(taskSnapshot -> {
+                                //Get Image Download Url
+                                filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri1) {
+                                        resUri.add(uri1.toString());
+
+                                        if(resUri.size() == imageUri.size()){
+
+                                            UsersAPI.getInstance().setHasRes(true);
+                                            User user = new User();
+                                            UsersAPI.getInstance().setUser(user);
+
+                                            //update user_has_res
+                                            db.collection(Util.USERS_COLLECTION_REF).document(UsersAPI.getInstance().getUserID()).set(user).addOnSuccessListener(aVoid -> {
+
+
+
+                                            });
+
+                                            restaurant.setImageUrl(resUri);
+                                            restaurantReference.add(restaurant).addOnSuccessListener(documentReference -> {
+
+                                                RestaurantsAPI.getInstance().setRestaurant(restaurant);
+
+                                            });
+
+                                            outAnimation = new AlphaAnimation(1f, 0f);
+                                            outAnimation.setDuration(200);
+                                            binding.daftarResProgressBar.setVisibility(View.GONE);
+                                            binding.daftarResProgressDescription.setText("Success");
+                                            binding.daftarResOKButton.setVisibility(View.VISIBLE);
+                                            binding.daftarResProgressDescription.setTextColor(Color.GREEN);
+
+
+
+                                        }
+
+                                    }
+
+                                    //fail getting download URL - res-pics
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                    }
+                                });
+                                //fail put file
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+
+                                }
+                            });
+                        }
+
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -415,68 +480,8 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
             }
         });
 
-        //Adding res pics to storage
-        for(Uri uri : imageUri){
-            //Store image to storage
-            StorageReference filePath = storageReference.child("Restaurants").child(id).child("res_images").child(resName + Timestamp.now().getNanoseconds());
-            filePath.putFile(uri).addOnSuccessListener(taskSnapshot -> {
-                //Get Image Download Url
-                filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri1) {
-                        resUri.add(uri1.toString());
-                        restaurant.setImageUrl(resUri);
-                        if(resUri.size() == imageUri.size()){
-                            db.collection(Util.USERS_COLLECTION_REF).document(UsersAPI.getInstance().getUserId()).update(Util.USER_HAS_RES_REF,true).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-
-                                }
-                            });
-
-                            restaurantReference.add(restaurant);
-                            RestaurantsAPI.getInstance().setRestaurant(restaurant);
-                            outAnimation = new AlphaAnimation(1f, 0f);
-                            outAnimation.setDuration(200);
-                            binding.daftarResProgressBar.setVisibility(View.GONE);
-                            binding.daftarResProgressDescription.setText("Success");
-                            binding.daftarResOKButton.setVisibility(View.VISIBLE);
-                            binding.daftarResProgressDescription.setTextColor(Color.GREEN);
-
-
-                        }
-
-                    }
-
-
-                    //fail getting download URL
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                });
-                //fail put file
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
-        }
-
-
-
-
-
-
-
-
     }
 
-    private void addCategoryToRes(String category){
-
-    }
     private String capitalize(String sentence){
         return sentence.substring(0,1).toUpperCase()+sentence.substring(1).toLowerCase();
     }

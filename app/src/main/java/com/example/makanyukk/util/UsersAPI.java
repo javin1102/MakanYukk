@@ -2,12 +2,16 @@ package com.example.makanyukk.util;
 
 import android.app.Application;
 
+import com.example.makanyukk.model.User;
+
 public class UsersAPI extends Application {
     private static UsersAPI instance;
-    private String username,userId;
+    private String email;
+    private String password;
+    private String username;
+    private String userID;
+    private Boolean hasRes;
     private String phoneNumber;
-    private boolean hasRes;
-
 
 
 
@@ -20,6 +24,30 @@ public class UsersAPI extends Application {
         return instance;
     }
 
+    public Boolean getHasRes() {
+        return hasRes;
+    }
+
+    public void setHasRes(Boolean hasRes) {
+        this.hasRes = hasRes;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -28,12 +56,12 @@ public class UsersAPI extends Application {
         this.username = username;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getPhoneNumber() {
@@ -44,11 +72,11 @@ public class UsersAPI extends Application {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isHasRes() {
-        return hasRes;
-    }
-
-    public void setHasRes(boolean hasRes) {
-        this.hasRes = hasRes;
+    public void setUser(User user){
+        user.setUserID(userID);
+        user.setHasRes(hasRes);
+        user.setEmail(email);
+        user.setPhoneNumber(phoneNumber);
+        user.setUsername(username);
     }
 }

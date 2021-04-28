@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.makanyukk.databinding.ActivityCreateAccountBinding;
+import com.example.makanyukk.model.User;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,7 +32,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener;
     private CollectionReference collectionReference =db.collection(Util.USERS_COLLECTION_REF);
     private FirebaseUser user;
-    private static final String TAG = "ASD";
+    private static final String TAG = "qwerty";
     private ActivityCreateAccountBinding binding;
     //asdasd
 
@@ -102,13 +103,19 @@ public class CreateAccountActivity extends AppCompatActivity {
                     user = authResult.getUser();
                     String userId = user.getUid() ;
 
-                    Map<String,String> userObj = new HashMap<>();
-                    userObj.put(Util.USER_ID_REF,userId);
-                    collectionReference.document(userId).set(userObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    User user = new User();
+                    user.setUserID(userId);
+                    user.setEmail(email);
+                    user.setHasRes(false);
+
+
+                    collectionReference.document(userId).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            UsersAPI usersAPI = UsersAPI.getInstance();
-                            usersAPI.setUserId(userId);
+
+                           UsersAPI.getInstance().setUserID(userId);
+                            UsersAPI.getInstance().setEmail(email);
+                            UsersAPI.getInstance().setHasRes(false);
                             binding.loadingBar.setVisibility(View.INVISIBLE);
                             Intent intent = new Intent(CreateAccountActivity.this, ProfileSetupActivity.class);
                             startActivity(intent);

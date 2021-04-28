@@ -15,11 +15,13 @@ import com.example.makanyukk.model.Restaurant;
 import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -85,25 +87,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(authResult -> {
             user = authResult.getUser();
             String userId = user.getUid();
-            UsersAPI.getInstance().setUserId(userId);
+            UsersAPI.getInstance().setUserID(userId);
 
 
-            collectionReference.whereEqualTo("userId",userId).addSnapshotListener((value, error) -> {
+            collectionReference.whereEqualTo(Util.USER_ID_REF,userId).get().addOnSuccessListener(queryDocumentSnapshots -> {
                 binding.loginLoadingBar.setVisibility(View.INVISIBLE);
-                for (QueryDocumentSnapshot snapshot : value){
+                for (QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
 
                     String username = snapshot.getString(Util.USER_NAME_REF);
                     String phoneNumber = snapshot.getString(Util.USER_PHONE_NUMBER_REF);
-                    boolean hasRes = snapshot.getBoolean(Util.USER_HAS_RES_REF);
+                    Boolean hasRes = snapshot.getBoolean(Util.USER_HAS_RES_REF);
 
                     if(!username.isEmpty() && !phoneNumber.isEmpty()){
                         UsersAPI.getInstance().setUsername(username);
                         UsersAPI.getInstance().setPhoneNumber(phoneNumber);
                         UsersAPI.getInstance().setHasRes(hasRes);
+                        UsersAPI.getInstance().setEmail(email);
                         if(hasRes){
                             Log.d(TAG, "onEvent: "+hasRes);
-                            restaurantReference.whereEqualTo(Util.RESTAURANT_USER_ID,userId).get().addOnSuccessListener(queryDocumentSnapshots -> {
-                                Restaurant restaurant = (Restaurant) queryDocumentSnapshots.toObjects(Restaurant.class).get(0);
+                            restaurantReference.whereEqualTo(Util.RESTAURANT_USER_ID,userId).get().addOnSuccessListener(queryDocumentSnapshots1 -> {
+                                Restaurant restaurant = (Restaurant) queryDocumentSnapshots1.toObjects(Restaurant.class).get(0);
                                 RestaurantsAPI.getInstance().setRestaurant(restaurant);
                             }).addOnFailureListener(e -> {});
                         }
@@ -117,10 +120,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
                 }
-
-
-
             });
+
+
+
+
+
         }).addOnFailureListener(e -> {
             binding.loginLoadingBar.setVisibility(View.INVISIBLE);
             // e instance of FirebaseAuthEmailException

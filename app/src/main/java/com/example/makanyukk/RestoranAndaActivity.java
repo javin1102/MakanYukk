@@ -1,6 +1,7 @@
 package com.example.makanyukk;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -32,6 +33,7 @@ public class RestoranAndaActivity extends AppCompatActivity {
     private CollectionReference userReference = db.collection(Util.USERS_COLLECTION_REF);
     private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
     private boolean hasRes;
+    private final int REQUEST_CODE = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class RestoranAndaActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
 
-        userReference.whereEqualTo(Util.USER_ID_REF,UsersAPI.getInstance().getUserId()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+        userReference.whereEqualTo(Util.USER_ID_REF,UsersAPI.getInstance().getUserID()).get().addOnSuccessListener(queryDocumentSnapshots -> {
            for(QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
                hasRes = snapshot.getBoolean(Util.USER_HAS_RES_REF);
            }
@@ -68,7 +70,8 @@ public class RestoranAndaActivity extends AppCompatActivity {
                 binding.resAndaNores.setVisibility(View.VISIBLE);
                 binding.resAndaDaftarSekarangTV.setOnClickListener(v -> {
                     Intent intent = new Intent(RestoranAndaActivity.this,DaftarRestoranActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,REQUEST_CODE);
+
 
                 });
             }
@@ -92,6 +95,15 @@ public class RestoranAndaActivity extends AppCompatActivity {
         else
         {
             return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
+            finish();
+            startActivity(getIntent());
         }
     }
 }

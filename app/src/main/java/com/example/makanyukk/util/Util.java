@@ -6,10 +6,10 @@ import android.view.inputmethod.InputMethodManager;
 
 public class Util {
     public static final String USERS_COLLECTION_REF = "Users";
-    public static final String USER_ID_REF = "userId";
+    public static final String USER_ID_REF = "userID";
     public static final String USER_NAME_REF = "username";
-    public static final String USER_PHONE_NUMBER_REF ="phone_number";
-    public static final String USER_HAS_RES_REF = "has_res";
+    public static final String USER_PHONE_NUMBER_REF ="phoneNumber";
+    public static final String USER_HAS_RES_REF = "hasRes";
 
 
     public static final String CATEGORY_NAME = "category_name";

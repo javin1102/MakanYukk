@@ -11,6 +11,7 @@ import android.util.Log;
 
 import com.example.makanyukk.R;
 import com.example.makanyukk.databinding.ActivityProfileSettingsBinding;
+import com.example.makanyukk.model.User;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -69,15 +70,11 @@ public class ProfileSetupActivity extends AppCompatActivity {
 
     private void add_Username_Phone(String username,String number){
         if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(username)){
-            Map<String,String> userObj = new HashMap<>();
-            userObj.put("username",username);
-            userObj.put("phone_number",number);
-            Map<String,Boolean> user_hasRes = new HashMap<>();
-            user_hasRes.put(Util.USER_HAS_RES_REF,false);
-
-            collectionReference.document(userInstance.getUserId()).set(user_hasRes,SetOptions.merge());
-
-            collectionReference.document(userInstance.getUserId()).set(userObj, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+            UsersAPI.getInstance().setPhoneNumber(number);
+            UsersAPI.getInstance().setUsername(username);
+            User user = new User();
+            UsersAPI.getInstance().setUser(user);
+            collectionReference.document(userInstance.getUserID()).set(user, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     startActivity(new Intent(ProfileSetupActivity.this,MainPageActivity.class));

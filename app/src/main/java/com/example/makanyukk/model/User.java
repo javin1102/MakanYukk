@@ -6,6 +6,10 @@ public class User {
     private String username;
     private String userID;
     private Boolean hasRes;
+    private String phoneNumber;
+
+
+
     public User(){}
 
     public User(String email, String password, String username, String userID) {
@@ -53,5 +57,12 @@ public class User {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
