@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/general_textstyle"
+        android:text="Hapus"
+        android:gravity="end"
+        android:layout_marginEnd="30dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginVertical="5dp"
+            android:id="@+id/tambah_menu_CV"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/light_gray">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/icon_add"
+                android:backgroundTint="@color/light_gray"
+                android:id="@+id/tambah_menu_IV"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tambah_menu_CV"
+            android:layout_marginStart="10dp"
+            style="@style/general_textstyle"
+            android:textSize="14sp"
+            android:hint="Nama Menu"
+            android:id="@+id/tambah_menu_namaMenu_ET"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/general_textstyle"
+            android:text="Rp."
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/tambah_menu_CV"
+            android:layout_below="@id/tambah_menu_namaMenu_ET"
+            android:id="@+id/tambah_menu_Rp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tambah_menu_Rp"
+            android:layout_marginStart="10dp"
+            style="@style/general_textstyle"
+            android:textSize="14sp"
+            android:hint="Harga"
+            android:inputType="number"
+            android:layout_below="@id/tambah_menu_namaMenu_ET"/>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/general_textstyle"
+            android:text="Kategori :"
+            android:id="@+id/tambah_menu_Kategori"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tambah_menu_Kategori"
+            android:text=""
+            android:hint="(Contoh: Minuman / Makanan Ringan)"
+            android:textSize="14sp"
+            android:id="@+id/tambah_menu_kategori_ET"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/general_textstyle"
+            android:textSize="10sp"
+            android:layout_below="@id/tambah_menu_Kategori"
+            android:text="(hanya 1 kategori setiap menu)"
+            android:textColor="@color/gray"
+            android:layout_marginTop="3dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

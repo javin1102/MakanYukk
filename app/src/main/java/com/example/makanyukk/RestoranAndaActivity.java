@@ -80,6 +80,10 @@ public class RestoranAndaActivity extends AppCompatActivity {
 
         });
 
+        binding.resAndaLayoutButton.setOnClickListener(v->{
+            startActivity(new Intent(RestoranAndaActivity.this,MenuAndaActivity.class));
+        });
+
 
     }
 

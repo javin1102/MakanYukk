@@ -11,8 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
+        <activity android:name=".TambahMenuActivity"></activity>
+        <activity android:name=".testActivity" />
         <activity android:name=".MenuAndaActivity" />
         <activity android:name=".RestoranAndaActivity" />
         <!--
@@ -22,12 +23,15 @@
         <activity
             android:name=".DaftarRestoranActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ProfileSetupActivity"
-            android:windowSoftInputMode="adjustNothing"/>
-        <activity android:name=".MainPageActivity"
-            android:windowSoftInputMode="adjustNothing"/>
-        <activity android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name=".ProfileSetupActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".MainPageActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

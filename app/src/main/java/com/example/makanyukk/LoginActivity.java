@@ -53,9 +53,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         binding.loginBelumPunyaAkunButton.setOnClickListener(this);
         binding.loginMasukButton.setOnClickListener(this);
 
-
-
-
     }
 
     @Override
@@ -104,10 +101,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         UsersAPI.getInstance().setHasRes(hasRes);
                         UsersAPI.getInstance().setEmail(email);
                         if(hasRes){
-                            Log.d(TAG, "onEvent: "+hasRes);
+
                             restaurantReference.whereEqualTo(Util.RESTAURANT_USER_ID,userId).get().addOnSuccessListener(queryDocumentSnapshots1 -> {
                                 Restaurant restaurant = (Restaurant) queryDocumentSnapshots1.toObjects(Restaurant.class).get(0);
                                 RestaurantsAPI.getInstance().setRestaurant(restaurant);
+                                Log.d(TAG, "onEvent: "+RestaurantsAPI.getInstance().getRestaurant().getName());
                             }).addOnFailureListener(e -> {});
                         }
                         startActivity(new Intent(LoginActivity.this, MainPageActivity.class));
@@ -117,8 +115,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         startActivity(new Intent(LoginActivity.this, ProfileSetupActivity.class));
                         finish();
                     }
-
-
                 }
             });
 

@@ -429,8 +429,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                                             });
 
                                             restaurant.setImageUrl(resUri);
-                                            restaurantReference.add(restaurant).addOnSuccessListener(documentReference -> {
-
+                                            restaurantReference.document(id).set(restaurant).addOnSuccessListener(documentReference -> {
                                                 RestaurantsAPI.getInstance().setRestaurant(restaurant);
 
                                             });
