@@ -7,8 +7,9 @@ import android.view.inputmethod.InputMethodManager;
 public class Util {
     public static final String USERS_COLLECTION_REF = "Users";
     public static final String USER_ID_REF = "userId";
-    public static final String USERNAME_REF = "username";
-    public static final String USER_PHONE_NUMBER ="phone_number";
+    public static final String USER_NAME_REF = "username";
+    public static final String USER_PHONE_NUMBER_REF ="phone_number";
+    public static final String USER_HAS_RES_REF = "has_res";
 
 
     public static final String CATEGORY_NAME = "category_name";
@@ -24,7 +25,7 @@ public class Util {
     public static final String RESTAURANT_CATEGORIES = "categories";
     public static final String RESTAURANT_LOGO = "logo";
     public static final String RESTAURANT_ID = "id";
-
+    public static final String RESTAURANT_USER_ID = "userId";
 
 
     public static void hideKeyboard(Activity activity) {

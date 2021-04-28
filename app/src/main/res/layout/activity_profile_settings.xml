@@ -72,14 +72,14 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/edit_text_box"
             android:ems="10"
+            android:fontFamily="@font/montserrat"
             android:inputType="textPersonName"
+            android:padding="3dp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text=""
-            android:fontFamily="@font/montserrat"
-            android:padding="3dp"
-            android:textSize="10sp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/masukkan_no_hp"
@@ -95,7 +95,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginVertical="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,14 +114,14 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_box"
                 android:ems="10"
+                android:fontFamily="@font/montserrat"
                 android:inputType="phone"
+                android:padding="3dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:text=""
-                android:fontFamily="@font/montserrat"
-                android:padding="3dp"
-                android:textSize="10sp"
                 android:textColor="@color/black"
+                android:textSize="12sp"
 
                 />
 

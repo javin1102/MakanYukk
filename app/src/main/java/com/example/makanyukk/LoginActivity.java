@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.makanyukk.databinding.ActivityLoginBinding;
+import com.example.makanyukk.model.Restaurant;
+import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private CollectionReference collectionReference =db.collection(Util.USERS_COLLECTION_REF);
+    private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
     private FirebaseUser user;
     private final String TAG = "ASDF";
 
@@ -41,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 user = firebaseAuth.getCurrentUser();
+                Log.d(TAG, "onAuthStateChanged: "+user.getUid());
             }
         };
 
@@ -87,14 +91,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             collectionReference.whereEqualTo("userId",userId).addSnapshotListener((value, error) -> {
                 binding.loginLoadingBar.setVisibility(View.INVISIBLE);
                 for (QueryDocumentSnapshot snapshot : value){
-                    Log.d(TAG, "onEvent: "+snapshot);
-                    UsersAPI.getInstance().setUsername(snapshot.getString(Util.USERNAME_REF));
-                    UsersAPI.getInstance().setPhoneNumber(snapshot.getString(Util.USER_PHONE_NUMBER));
+
+                    String username = snapshot.getString(Util.USER_NAME_REF);
+                    String phoneNumber = snapshot.getString(Util.USER_PHONE_NUMBER_REF);
+                    boolean hasRes = snapshot.getBoolean(Util.USER_HAS_RES_REF);
+
+                    if(!username.isEmpty() && !phoneNumber.isEmpty()){
+                        UsersAPI.getInstance().setUsername(username);
+                        UsersAPI.getInstance().setPhoneNumber(phoneNumber);
+                        UsersAPI.getInstance().setHasRes(hasRes);
+                        if(hasRes){
+                            Log.d(TAG, "onEvent: "+hasRes);
+                            restaurantReference.whereEqualTo(Util.RESTAURANT_USER_ID,userId).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                                Restaurant restaurant = (Restaurant) queryDocumentSnapshots.toObjects(Restaurant.class).get(0);
+                                RestaurantsAPI.getInstance().setRestaurant(restaurant);
+                            }).addOnFailureListener(e -> {});
+                        }
+                        startActivity(new Intent(LoginActivity.this, MainPageActivity.class));
+                        finish();
+                    }
+                    else{
+                        startActivity(new Intent(LoginActivity.this, ProfileSetupActivity.class));
+                        finish();
+                    }
+
+
                 }
 
 
-                startActivity(new Intent(LoginActivity.this, MainPageActivity.class));
-                finish();
+
             });
         }).addOnFailureListener(e -> {
             binding.loginLoadingBar.setVisibility(View.INVISIBLE);

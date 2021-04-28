@@ -72,6 +72,10 @@ public class ProfileSetupActivity extends AppCompatActivity {
             Map<String,String> userObj = new HashMap<>();
             userObj.put("username",username);
             userObj.put("phone_number",number);
+            Map<String,Boolean> user_hasRes = new HashMap<>();
+            user_hasRes.put(Util.USER_HAS_RES_REF,false);
+
+            collectionReference.document(userInstance.getUserId()).set(user_hasRes,SetOptions.merge());
 
             collectionReference.document(userInstance.getUserId()).set(userObj, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
