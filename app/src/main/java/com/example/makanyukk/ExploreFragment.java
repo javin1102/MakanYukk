@@ -24,9 +24,7 @@ import com.example.makanyukk.util.Util;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -38,7 +36,7 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference categoryReference = db.collection(Util.EXPLORE_CATEGORY_COLLECTION_REF);
-    private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
+    private CollectionReference restaurantReference = db.collection(Util.RESTAURANT_COLLECTION_REF);
 
     private ExploreListViewAdapter exploreListViewAdapter;
 

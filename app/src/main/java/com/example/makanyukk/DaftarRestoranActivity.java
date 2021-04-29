@@ -15,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,19 +36,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class DaftarRestoranActivity extends AppCompatActivity implements View.OnClickListener,View.OnTouchListener {
@@ -68,7 +62,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
+    private CollectionReference restaurantReference = db.collection(Util.RESTAURANT_COLLECTION_REF);
     private CollectionReference categoryReference = db.collection(Util.MAIN_CATEGORY_COLLECTION_REF);
 
 
@@ -422,11 +416,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                                             UsersAPI.getInstance().setUser(user);
 
                                             //update user_has_res
-                                            db.collection(Util.USERS_COLLECTION_REF).document(UsersAPI.getInstance().getUserID()).set(user).addOnSuccessListener(aVoid -> {
-
-
-
-                                            });
+                                            db.collection(Util.USERS_COLLECTION_REF).document(UsersAPI.getInstance().getUserID()).set(user);
 
                                             restaurant.setImageUrl(resUri);
                                             restaurantReference.document(id).set(restaurant).addOnSuccessListener(documentReference -> {
@@ -439,14 +429,11 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
                                             binding.daftarResProgressBar.setVisibility(View.GONE);
                                             binding.daftarResProgressDescription.setText("Success");
                                             binding.daftarResOKButton.setVisibility(View.VISIBLE);
-                                            binding.daftarResProgressDescription.setTextColor(Color.GREEN);
-
-
+                                            binding.daftarResProgressDescription.setTextColor(Color.parseColor("#83D59F"));
 
                                         }
 
                                     }
-
                                     //fail getting download URL - res-pics
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

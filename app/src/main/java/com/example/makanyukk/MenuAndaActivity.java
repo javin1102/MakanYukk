@@ -1,5 +1,6 @@
 package com.example.makanyukk;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,17 +15,16 @@ import android.view.View;
 import com.example.makanyukk.databinding.ActivityMenuAndaBinding;
 import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.Util;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class MenuAndaActivity extends AppCompatActivity {
 
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
+    private CollectionReference restaurantReference = db.collection(Util.RESTAURANT_COLLECTION_REF);
     private ActivityMenuAndaBinding binding;
+    private final int REQUEST_CODE = 3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +64,7 @@ public class MenuAndaActivity extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.menuAnda_add_button){
-
+            startActivityForResult(new Intent(MenuAndaActivity.this,TambahMenuActivity.class),REQUEST_CODE);
             return true;
         }
         else
@@ -77,5 +77,14 @@ public class MenuAndaActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_anda_menu,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK){
+            finish();
+            startActivity(getIntent());
+        }
     }
 }

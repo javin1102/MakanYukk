@@ -17,7 +17,7 @@ public class Util {
     public static final String EXPLORE_CATEGORY_COLLECTION_REF = "ExploreCategory";
 
     //RESTAURANT STRING REFERENCE
-    public static final String USER_RESTAURANT_COLLECTION_REF = "Restaurants";
+    public static final String RESTAURANT_COLLECTION_REF = "Restaurants";
     public static final String RESTAURANT_NAME = "name";
     public static final String RESTAURANT_LATITUDE = "latitude";
     public static final String RESTAURANT_LONGTIUDE = "longitude";
@@ -26,6 +26,16 @@ public class Util {
     public static final String RESTAURANT_LOGO = "logo";
     public static final String RESTAURANT_ID = "id";
     public static final String RESTAURANT_USER_ID = "userId";
+
+    //Menu STRING REFERENECE
+    public static final String MENU_URL = "url";
+    public static final String MENU_COLLECTION_REFERENCE = "Menu";
+    public static final String MENU_NAME = "name";
+    public static final String MENU_PRICE = "price";
+    public static final String MENU_CATEGORY = "category";
+    public static final boolean MENU_RECOMMENDATION = false;
+    public static final boolean MENU_AVAILABLE = false;
+    public static final String MENU_STORAGE_REFERENCE = "res_menu";
 
 
     public static void hideKeyboard(Activity activity) {

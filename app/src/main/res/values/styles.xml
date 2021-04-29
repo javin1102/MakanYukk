@@ -10,6 +10,7 @@
         <item name="colorPrimary">@color/golden_bg</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">@color/golden_bg</item>
+        <item name="android:actionMenuTextColor">#83D59F</item>
     </style>
 
     <style name="general_textstyle">

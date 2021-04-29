@@ -3,10 +3,20 @@ package com.example.makanyukk.model;
 public class Menu {
     private String menuImageURL;
     private String menuName;
-    private String menuPrice;
+    private int menuPrice;
     private String menuCategory;
     private boolean recommendedMenu;
     private boolean isAvailable;
+    public Menu(){}
+    public Menu(String menuImageURL, String menuName, int menuPrice, String menuCategory, boolean recommendedMenu, boolean isAvailable) {
+        this.menuImageURL = menuImageURL;
+        this.menuName = menuName;
+        this.menuPrice = menuPrice;
+        this.menuCategory = menuCategory;
+        this.recommendedMenu = recommendedMenu;
+        this.isAvailable = isAvailable;
+    }
+
 
     public String getMenuImageURL() {
         return menuImageURL;
@@ -24,11 +34,11 @@ public class Menu {
         this.menuName = menuName;
     }
 
-    public String getMenuPrice() {
+    public int getMenuPrice() {
         return menuPrice;
     }
 
-    public void setMenuPrice(String menuPrice) {
+    public void setMenuPrice(int menuPrice) {
         this.menuPrice = menuPrice;
     }
 

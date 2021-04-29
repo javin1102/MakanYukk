@@ -15,13 +15,11 @@ import com.example.makanyukk.model.Restaurant;
 import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private CollectionReference collectionReference =db.collection(Util.USERS_COLLECTION_REF);
-    private CollectionReference restaurantReference = db.collection(Util.USER_RESTAURANT_COLLECTION_REF);
+    private CollectionReference restaurantReference = db.collection(Util.RESTAURANT_COLLECTION_REF);
     private FirebaseUser user;
     private final String TAG = "ASDF";
 
