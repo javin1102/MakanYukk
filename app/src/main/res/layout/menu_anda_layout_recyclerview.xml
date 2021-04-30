@@ -5,15 +5,18 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="15dp"
+    android:background="@color/white"
     >
     <TextView
         style="@style/general_textstyle"
         android:text="Rekomendasi"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:id="@+id/menuAnda_category"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/menuAnda_List_RV"/>
 </LinearLayout>

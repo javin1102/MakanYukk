@@ -24,20 +24,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.makanyukk.databinding.ActivityTambahMenuBinding;
+import com.example.makanyukk.model.Category;
+import com.example.makanyukk.model.MenuCategory;
 import com.example.makanyukk.util.RestaurantsAPI;
-import com.example.makanyukk.util.UsersAPI;
 import com.example.makanyukk.util.Util;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class TambahMenuActivity extends AppCompatActivity {
     private ActivityTambahMenuBinding binding;
@@ -46,8 +45,8 @@ public class TambahMenuActivity extends AppCompatActivity {
     private List<Uri> uriList;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference restaurantReference = db.collection(Util.RESTAURANT_COLLECTION_REF);
-    private CollectionReference menuReference = restaurantReference.document(RestaurantsAPI.getInstance().getRestaurant().getId())
-            .collection(Util.MENU_COLLECTION_REFERENCE);
+    private CollectionReference menuCategoryReference = restaurantReference.document(RestaurantsAPI.getInstance().getRestaurant().getId())
+            .collection(Util.MENU_CATEGORY_COLLECTION_REFERENCE);
     private StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,11 +152,14 @@ public class TambahMenuActivity extends AppCompatActivity {
     }
 
     private void insertToFirestoreDB(){
+
         binding.tambahMenuLayout.setForeground(new ColorDrawable(ContextCompat.getColor(this, R.color.light_gray)));
         binding.tambahMenuCardView.setVisibility(View.VISIBLE);
         binding.tambahMenuLayout.setClickable(false);
         binding.tambahMenuProgressBar.setVisibility(View.VISIBLE);
-       int len = binding.tambahMenuContent.getChildCount();
+
+        int len = binding.tambahMenuContent.getChildCount();
+
        if(len == 0){
            binding.tambahMenuLayout.setForeground(null);
            binding.tambahMenuCardView.setVisibility(View.GONE);
@@ -165,6 +167,7 @@ public class TambahMenuActivity extends AppCompatActivity {
            return;
        }
 
+        //Validation
        for(int i = 0 ; i < len ; i++){
            if(uriList.get(i) == null){
                binding.tambahMenuLayout.setForeground(null);
@@ -198,6 +201,7 @@ public class TambahMenuActivity extends AppCompatActivity {
        }
 
        for(int i = 0 ; i < len ; i++){
+
            Uri uri = uriList.get(i);
            EditText namaMenuET = binding.tambahMenuContent.getChildAt(i).findViewById(R.id.tambah_menu_namaMenu_ET);
            EditText hargaET = binding.tambahMenuContent.getChildAt(i).findViewById(R.id.tambah_menu_harga_ET);
@@ -226,6 +230,8 @@ public class TambahMenuActivity extends AppCompatActivity {
            menu.setMenuCategory(kategori.getText().toString().trim());
            menu.setRecommendedMenu(rekomendasi);
            menu.setAvailable(ketersediaan);
+           Category category = new Category(menu.getMenuCategory());
+
 
            StorageReference filePath = storageReference.child(Util.RESTAURANT_COLLECTION_REF)
                    .child(RestaurantsAPI.getInstance().getRestaurant().getId())
@@ -234,7 +240,16 @@ public class TambahMenuActivity extends AppCompatActivity {
            filePath.putFile(uri).addOnSuccessListener(taskSnapshot -> {
                filePath.getDownloadUrl().addOnSuccessListener(uri1 -> {
                    menu.setMenuImageURL(uri1.toString());
-                   menuReference.add(menu);
+                   if(menu.isRecommendedMenu()){
+                       Category category1 = new Category();
+                       category1.setCategoryName("Recommended");
+                       menuCategoryReference.document(Util.MENU_RECOMMENDED_CATEGORY_REFERENCE).set(category1);
+                       menuCategoryReference.document(Util.MENU_RECOMMENDED_CATEGORY_REFERENCE).collection(Util.MENU_COLLECTION_REFERENCE).
+                               add(menu);
+
+                   }
+                   menuCategoryReference.document(menu.getMenuCategory()).set(category);
+                   menuCategoryReference.document(menu.getMenuCategory()).collection(Util.MENU_COLLECTION_REFERENCE).add(menu);
                    binding.tambahMenuLoading.setVisibility(View.GONE);
                    binding.tambahMenuSukses.setVisibility(View.VISIBLE);
                    binding.tambahMenuOK.setVisibility(View.VISIBLE);

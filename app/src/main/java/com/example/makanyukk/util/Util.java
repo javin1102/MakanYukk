@@ -28,14 +28,16 @@ public class Util {
     public static final String RESTAURANT_USER_ID = "userId";
 
     //Menu STRING REFERENECE
-    public static final String MENU_URL = "url";
+    public static final String MENU_URL = "menuImageURL";
     public static final String MENU_COLLECTION_REFERENCE = "Menu";
-    public static final String MENU_NAME = "name";
-    public static final String MENU_PRICE = "price";
-    public static final String MENU_CATEGORY = "category";
-    public static final boolean MENU_RECOMMENDATION = false;
-    public static final boolean MENU_AVAILABLE = false;
+    public static final String MENU_CATEGORY_COLLECTION_REFERENCE = "Menu Category";
+    public static final String MENU_NAME = "menuName";
+    public static final String MENU_PRICE = "menuPrice";
+    public static final String MENU_CATEGORY = "menuCategory";
+    public static final String MENU_RECOMMENDATION = "recommendedMenu";
+    public static final String MENU_AVAILABLE = "available";
     public static final String MENU_STORAGE_REFERENCE = "res_menu";
+    public static final String MENU_RECOMMENDED_CATEGORY_REFERENCE = "Recommended Menu";
 
 
     public static void hideKeyboard(Activity activity) {
