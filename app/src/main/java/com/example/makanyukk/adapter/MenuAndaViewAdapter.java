@@ -36,11 +36,20 @@ public class MenuAndaViewAdapter extends RecyclerView.Adapter<MenuAndaViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.categoryTV.setText(menuCategoryList.get(position).getCategory().getCategoryName());
-        LinearLayoutManager layoutManager =  new LinearLayoutManager(holder.menuListRV.getContext(),LinearLayoutManager.VERTICAL,false);
+
+        LinearLayoutManager layoutManager =  new LinearLayoutManager(holder.menuListRV.getContext(),LinearLayoutManager.VERTICAL,false){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+
         layoutManager.setInitialPrefetchItemCount(menuCategoryList.get(position).getMenuList().size());
         MenuAndaListAdapter menuAndaListAdapter = new MenuAndaListAdapter(menuCategoryList.get(position).getMenuList());
+
         holder.menuListRV.setLayoutManager(layoutManager);
         holder.menuListRV.setAdapter(menuAndaListAdapter);
+        holder.menuListRV.setHasFixedSize(true);
 
         holder.menuListRV.setRecycledViewPool(viewPool);
 
@@ -58,6 +67,7 @@ public class MenuAndaViewAdapter extends RecyclerView.Adapter<MenuAndaViewAdapte
             super(itemView);
             categoryTV = itemView.findViewById(R.id.menuAnda_category);
             menuListRV = itemView.findViewById(R.id.menuAnda_List_RV);
+            menuListRV.setNestedScrollingEnabled(false);
         }
     }
 

@@ -54,9 +54,10 @@ public class MenuAndaActivity extends AppCompatActivity {
 
         menuList = new ArrayList<>();
         menuCategoryList = new ArrayList<>();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MenuAndaActivity.this);
+        binding.menuAndaRV.setHasFixedSize(true);
 
-
-
+        binding.menuAndaRV.setLayoutManager(linearLayoutManager);
         Toolbar toolbar = findViewById(binding.menuAndaToolbar.getId());
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -103,11 +104,18 @@ public class MenuAndaActivity extends AppCompatActivity {
 //
 //                        }
 
+
                         MenuAndaViewAdapter menuAndaViewAdapter = new MenuAndaViewAdapter(menuCategoryList);
                         binding.menuAndaRV.setAdapter(menuAndaViewAdapter);
-                        binding.menuAndaRV.setHasFixedSize(true);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MenuAndaActivity.this);
-                        binding.menuAndaRV.setLayoutManager(linearLayoutManager);
+
+
+                        binding.menuAndaRV.smoothScrollToPosition(menuCategoryList.size()-1);
+
+
+
+
+
+
 
 
 

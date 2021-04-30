@@ -17,6 +17,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/menuAnda_List_RV"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/menuAnda_List_RV"
+        android:nestedScrollingEnabled="false"/>
 </LinearLayout>
