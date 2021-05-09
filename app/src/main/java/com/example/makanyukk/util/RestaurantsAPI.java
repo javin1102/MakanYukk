@@ -9,6 +9,7 @@ import java.util.List;
 public class RestaurantsAPI {
     public static RestaurantsAPI instance;
     private Restaurant restaurant;
+    private Restaurant selectedRestaurant;
     public RestaurantsAPI(){}
     public static RestaurantsAPI getInstance(){
         if(instance == null)
@@ -25,4 +26,13 @@ public class RestaurantsAPI {
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
     }
+
+    public Restaurant getSelectedRestaurant() {
+        return selectedRestaurant;
+    }
+
+    public void setSelectedRestaurant(Restaurant selectedRestaurant) {
+        this.selectedRestaurant = selectedRestaurant;
+    }
+
 }

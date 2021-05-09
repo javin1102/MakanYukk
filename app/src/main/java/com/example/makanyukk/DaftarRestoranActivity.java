@@ -42,9 +42,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 
 public class DaftarRestoranActivity extends AppCompatActivity implements View.OnClickListener,View.OnTouchListener {
 
@@ -73,6 +75,7 @@ public class DaftarRestoranActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_restoran);
+
 
         storageReference =FirebaseStorage.getInstance().getReference();
         imageUri = new ArrayList<>();

@@ -1,12 +1,14 @@
 package com.example.makanyukk;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -18,8 +20,10 @@ import android.widget.RadioButton;
 import com.example.makanyukk.adapter.ExploreListViewAdapter;
 import com.example.makanyukk.databinding.FragmentExploreBinding;
 import com.example.makanyukk.interfaces.ExploreCategoryClickListener;
+import com.example.makanyukk.interfaces.ExploreRestaurantClickListener;
 import com.example.makanyukk.model.Category;
 import com.example.makanyukk.model.Restaurant;
+import com.example.makanyukk.util.RestaurantsAPI;
 import com.example.makanyukk.util.Util;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,11 +32,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ExploreFragment extends Fragment implements ExploreCategoryClickListener {
+public class ExploreFragment extends Fragment implements ExploreRestaurantClickListener {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference categoryReference = db.collection(Util.EXPLORE_CATEGORY_COLLECTION_REF);
@@ -43,6 +48,8 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
     private List<Category> categoryList;
     private FragmentExploreBinding binding;
     private List<Restaurant> restaurantList;
+    private final String TAG ="Explore";
+    private final int REQEUST_CODE = 10;
 
 
 
@@ -76,7 +83,6 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         //Initial Radio Button State
         binding.RadioGroup.check(R.id.radiobutton1);
         changeColorClicked(binding.radiobutton1);
@@ -145,7 +151,7 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
                 }
 
                 //SETTING EXPLORE LIST
-                exploreListViewAdapter = new ExploreListViewAdapter(restaurantList);
+                exploreListViewAdapter = new ExploreListViewAdapter(restaurantList,ExploreFragment.this);
                 binding.exploreListRv.setAdapter(exploreListViewAdapter);
             }
         });
@@ -166,11 +172,6 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
         return view;
     }
 
-    @Override
-    public void onClickCategory(Category category) {
-
-
-    }
     @SuppressLint({"UseCompatLoadingForColorStateLists", "ResourceType"})
     private void changeColorClicked(RadioButton textView){
         textView.setTextColor(Color.WHITE);
@@ -185,5 +186,11 @@ public class ExploreFragment extends Fragment implements ExploreCategoryClickLis
     }
 
 
-
+    @Override
+    public void onRestaurantClicked(Restaurant restaurant) {
+        Log.d(TAG, "onRestaurantClicked: "+restaurant.getName());
+        Intent intent = new Intent(getActivity(),RestaurantActivity.class);
+        RestaurantsAPI.getInstance().setSelectedRestaurant(restaurant);
+        getActivity().startActivity(intent);
+    }
 }

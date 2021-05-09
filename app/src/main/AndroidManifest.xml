@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TambahMenuActivity"></activity>
-        <activity android:name=".testActivity" />
+        <activity android:name=".RestaurantActivity"></activity>
+        <activity android:name=".TambahMenuActivity" />
+
         <activity android:name=".MenuAndaActivity" />
         <activity android:name=".RestoranAndaActivity" />
         <!--

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.makanyukk.R;
+import com.example.makanyukk.interfaces.ExploreRestaurantClickListener;
 import com.example.makanyukk.model.Category;
 import com.example.makanyukk.model.Restaurant;
 import com.squareup.picasso.Picasso;
@@ -18,11 +19,14 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ExploreListViewAdapter extends RecyclerView.Adapter<ExploreListViewAdapter.ViewHolder> {
-    public List<Restaurant> restaurantList;
-    public ExploreListViewAdapter(){}
-    public ExploreListViewAdapter(List<Restaurant> restaurantList){
+    private List<Restaurant> restaurantList;
+    private final ExploreRestaurantClickListener exploreRestaurantClickListener;
+
+    public ExploreListViewAdapter(List<Restaurant> restaurantList, ExploreRestaurantClickListener exploreRestaurantClickListener){
         this.restaurantList = restaurantList;
+        this.exploreRestaurantClickListener = exploreRestaurantClickListener;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -55,9 +59,10 @@ public class ExploreListViewAdapter extends RecyclerView.Adapter<ExploreListView
         return restaurantList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView resLogo;
         public TextView resName,resCategory,resLocation;
+        ExploreRestaurantClickListener restaurantClickListener;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +70,15 @@ public class ExploreListViewAdapter extends RecyclerView.Adapter<ExploreListView
             resName = itemView.findViewById(R.id.res_name);
             resCategory = itemView.findViewById(R.id.res_category);
             resLocation = itemView.findViewById(R.id.res_location);
+            this.restaurantClickListener = exploreRestaurantClickListener;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Restaurant restaurant = restaurantList.get(getAdapterPosition());
+            restaurantClickListener.onRestaurantClicked(restaurant);
+
         }
     }
 }
