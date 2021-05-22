@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="90dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginVertical="15dp">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/light_gray">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:id="@+id/restaurant_menu_IV"/>
+
+    </androidx.cardview.widget.CardView>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/general_textstyle"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:text="Big Mac: 3 Burger + 2 Coke + 1 French Fries"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="4dp"
+        android:id="@+id/restaurant_menu_name_TV"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            style="@style/general_textstyle"
+            android:text="Rp."
+            android:textSize="12sp"
+            android:id="@+id/restaurant_menu_RP_TV" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/gray"
+            android:text="4.000.000"
+            android:textStyle="bold"
+            style="@style/general_textstyle"
+            android:id="@+id/restaurant_menu_price_TV"
+            android:textSize="12sp"
+            android:layout_toEndOf="@id/restaurant_menu_RP_TV"
+            android:layout_marginStart="3dp"/>
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

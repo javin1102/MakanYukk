@@ -164,10 +164,10 @@ public class ExploreFragment extends Fragment implements ExploreRestaurantClickL
         binding = FragmentExploreBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-
         binding.exploreListRv.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         binding.exploreListRv.setLayoutManager(linearLayoutManager);
+        Log.d(TAG, "onCreateView: "+restaurantList.size());
 
         return view;
     }
