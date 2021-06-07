@@ -34,7 +34,7 @@ public class SliderViewPagerAdapter extends RecyclerView.Adapter<SliderViewPager
 
     @Override
     public void onBindViewHolder(@NonNull ImageSlider holder, int position) {
-        Picasso.get().load(imageList.get(position).getUrl()).fit().into(holder.imageView);
+        Picasso.get().load(imageList.get(position).getUrl()).fit().placeholder(R.color.gray).into(holder.imageView);
     }
 
     @Override

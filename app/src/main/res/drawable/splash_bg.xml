@@ -2,11 +2,22 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@color/white"/>
+    <item android:gravity="center" android:width="300dp" android:height="300dp"
+        >
 
-    <item android:gravity="center" android:width="200dp" android:height="200dp">
         <bitmap
             android:gravity="fill_horizontal|fill_vertical"
-            android:src="@drawable/logo1"/>
+            android:src="@drawable/logo"/>
+
     </item>
+    <item android:gravity="center" android:width="300dp" android:height="50dp"
+        android:top="170dp">
+
+        <bitmap
+            android:gravity="fill"
+            android:src="@drawable/text"/>
+
+    </item>
+
 
 </layer-list>

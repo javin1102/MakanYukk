@@ -11,7 +11,7 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="200dp"
             android:layout_marginTop="84dp"
             android:contentDescription="@string/logo"
@@ -19,14 +19,14 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo1" />
+            app:srcCompat="@drawable/splash_bg" />
 
         <EditText
             android:id="@+id/login_Email_Et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="34dp"
             android:layout_marginEnd="32dp"
             android:autofillHints="@string/email"
             android:backgroundTint="@color/golden_bg"

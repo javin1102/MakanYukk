@@ -107,29 +107,29 @@ public class MainFragment extends Fragment {
             }
             });
 
-        //GET List of CATEGORY BALL NAME FROM COLLECTION REFERENCE
-        collectionReference.get().addOnCompleteListener(task -> {
-            //Display
-
-            task.addOnSuccessListener(queryDocumentSnapshots -> {
-                for (QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
-                    Category category = new Category();
-                    category.setCategoryName(snapshot.getString(Util.CATEGORY_NAME));
-                    categories.add(category);
-                    //Log.d(TAG, "onSuccess: "+snapshot.getString(Util.CATEGORY_NAME));
-                }
-
-                categoryViewAdapter = new CategoryViewAdapter(categories,getContext());
-                categoryRecyclerView.setAdapter(categoryViewAdapter);
-
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-
-                }
-            });
-        });
-
+//        //GET List of CATEGORY BALL NAME FROM COLLECTION REFERENCE
+//        collectionReference.get().addOnCompleteListener(task -> {
+//            //Display
+//
+//            task.addOnSuccessListener(queryDocumentSnapshots -> {
+//                for (QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
+//                    Category category = new Category();
+//                    category.setCategoryName(snapshot.getString(Util.CATEGORY_NAME));
+//                    categories.add(category);
+//                    //Log.d(TAG, "onSuccess: "+snapshot.getString(Util.CATEGORY_NAME));
+//                }
+//
+//                categoryViewAdapter = new CategoryViewAdapter(categories,getContext());
+//                categoryRecyclerView.setAdapter(categoryViewAdapter);
+//
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//
+//                }
+//            });
+//        });
+//
         extraPoinCardAdapter = new ExtraPoinCardAdapter();
         extraPoinRecyclerView.setAdapter(extraPoinCardAdapter);
 
@@ -140,11 +140,13 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-        categoryRecyclerView = view.findViewById(R.id.category_rv);
-        categoryRecyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        categoryRecyclerView.setLayoutManager(layoutManager);
+
+
+//        categoryRecyclerView = view.findViewById(R.id.category_rv);
+//        categoryRecyclerView.setHasFixedSize(true);
+//        LinearLayoutManager layoutManager
+//                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//        categoryRecyclerView.setLayoutManager(layoutManager);
 
         extraPoinRecyclerView = view.findViewById(R.id.extra_poin_rv);
         extraPoinRecyclerView.setHasFixedSize(true);
