@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingBottom="70dp"
+                android:paddingHorizontal="20dp"
                 >
 
                 <LinearLayout
@@ -69,7 +70,7 @@
 
                                 <TextView
                                     style="@style/wallet_textStyle"
-                                    android:text="23.0000,-"
+                                    android:text="0"
                                     android:textColor="@color/gray" />
 
 
@@ -103,7 +104,7 @@
 
                                 <TextView
                                     style="@style/wallet_textStyle"
-                                    android:text="453"
+                                    android:text="0"
                                     android:textColor="@color/gray" />
 
 
@@ -123,10 +124,11 @@
                     >
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="370dp"
-                            android:layout_height="180dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
                             app:cardCornerRadius="10dp"
-                            app:cardElevation="13dp">
+                            app:cardElevation="5dp"
+                            android:layout_marginHorizontal="10dp">
                             <androidx.viewpager2.widget.ViewPager2
                                 android:id="@+id/slider"
                                 android:layout_width="match_parent"
@@ -138,11 +140,12 @@
                 </LinearLayout>
 
                 <GridLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical"
                     android:rowCount="2"
+                    android:columnCount="3"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -153,8 +156,7 @@
                         style="@style/category_card"
                         app:cardCornerRadius="18dp"
 
-
-                        app:cardElevation="10dp">
+                        >
 
                         <LinearLayout style="@style/category_layout">
 
@@ -178,8 +180,7 @@
                         style="@style/category_card"
                         app:cardCornerRadius="18dp"
 
-
-                        app:cardElevation="10dp">
+                        >
 
                         <LinearLayout style="@style/category_layout">
 
@@ -203,8 +204,7 @@
                         style="@style/category_card"
                         app:cardCornerRadius="18dp"
 
-
-                        app:cardElevation="10dp">
+                        >
 
                         <LinearLayout style="@style/category_layout">
 
@@ -228,8 +228,7 @@
                         style="@style/category_card"
                         app:cardCornerRadius="18dp"
 
-
-                        app:cardElevation="10dp">
+                        >
 
                         <LinearLayout style="@style/category_layout">
 
@@ -253,8 +252,7 @@
                         style="@style/category_card"
                         app:cardCornerRadius="18dp"
 
-
-                        app:cardElevation="10dp">
+                        >
 
                         <LinearLayout style="@style/category_layout">
 
@@ -262,14 +260,11 @@
                             <ImageButton
                                 android:id="@+id/kategori_button_5"
                                 style="@style/category_image"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
                                 android:src="@drawable/western" />
 
                             <TextView
                                 android:id="@+id/kategori_text_5"
                                 style="@style/general_textstyle"
-                                android:layout_marginTop="10dp"
                                 android:text="Barat"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -281,8 +276,7 @@
                         style="@style/category_card"
                         app:cardCornerRadius="18dp"
 
-
-                        app:cardElevation="10dp">
+                        >
 
                         <LinearLayout style="@style/category_layout">
 
@@ -290,17 +284,15 @@
                             <ImageButton
                                 android:id="@+id/kategori_button_6"
                                 style="@style/category_image"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
                                 android:src="@drawable/vegetarian" />
 
                             <TextView
                                 android:id="@+id/kategori_text_6"
                                 style="@style/general_textstyle"
-                                android:layout_marginTop="10dp"
                                 android:text="Sehat"
                                 android:textSize="12sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>

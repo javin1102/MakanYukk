@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="category_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+
+        <item name="android:paddingVertical">10dp</item>
+    </style>
+
+    <style name="category_card">
+        <item name="cardElevation">3dp</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+
+    </style>
+</resources>

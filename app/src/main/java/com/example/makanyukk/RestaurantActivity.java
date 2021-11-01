@@ -60,7 +60,7 @@ public class RestaurantActivity extends AppCompatActivity {
             binding.restaurantAddressTV.setText(restaurant.getAddress());
 
             Uri uri = Uri.parse(restaurant.getLogoUrl());
-            Picasso.get().load(uri).fit().centerCrop().into(binding.restaurantLogoIV);
+            Picasso.get().load(uri).placeholder(R.color.light_gray).fit().centerCrop().into(binding.restaurantLogoIV);
         }
 
         //Tab Layout

@@ -33,7 +33,7 @@ public class RestaurantMenuListAdapter extends RecyclerView.Adapter<RestaurantMe
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Uri uri = Uri.parse(menuList.get(position).getMenuImageURL());
-        Picasso.get().load(uri).centerCrop().fit().into(holder.menuIV);
+        Picasso.get().load(uri).placeholder(R.color.light_gray).centerCrop().fit().into(holder.menuIV);
         holder.menuNameTV.setText(menuList.get(position).getMenuName());
         holder.menuPriceTV.setText(String.valueOf(menuList.get(position).getMenuPrice()));
     }

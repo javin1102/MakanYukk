@@ -39,9 +39,10 @@ public class ExploreListViewAdapter extends RecyclerView.Adapter<ExploreListView
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.resName.setText(restaurantList.get(position).getName());
         Uri uri = Uri.parse(restaurantList.get(position).getLogoUrl());
-        Picasso.get().load(uri).fit().placeholder(R.color.light_gray).into(holder.resLogo);
+        Picasso.get().load(uri).centerCrop().fit().placeholder(R.color.light_gray).into(holder.resLogo);
         holder.resLocation.setText(restaurantList.get(position).getAddress());
         StringBuilder stringBuilder = new StringBuilder();
+
         int len = restaurantList.get(position).getCategories().size();
         for(int i = 0 ; i < len ;i++){
             Category category = restaurantList.get(position).getCategories().get(i);
